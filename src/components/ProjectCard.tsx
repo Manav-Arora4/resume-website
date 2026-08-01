@@ -53,10 +53,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <FaGithub aria-hidden="true" />
               GitHub
             </a>
-            <a href={project.demoUrl} aria-label={`${project.title} live demo`}>
-              <FaExternalLinkAlt aria-hidden="true" />
-              Live Demo
-            </a>
+            {/* {project.demoUrl && project.demoUrl !== '#' && (
+              <a href={project.demoUrl} aria-label={`${project.title} live demo`}>
+                <FaExternalLinkAlt aria-hidden="true" />
+                Live Demo
+              </a>
+            )} */}
           </div>
         </div>
       </GlassCard>

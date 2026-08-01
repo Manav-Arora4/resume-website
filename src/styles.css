@@ -705,7 +705,7 @@ nav a:hover,
 
 @media (max-width: 900px) {
   .site-header {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr auto;
   }
 
   nav {
@@ -714,6 +714,12 @@ nav a:hover,
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
   }
 
   .hero,
@@ -727,23 +733,105 @@ nav a:hover,
     padding-top: 3rem;
   }
 
-  .skill-grid,
+  .hero-panel {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .hero-panel div {
+    flex: 1;
+    border-bottom: 0;
+    border-right: 1px solid rgba(148, 163, 184, 0.16);
+    padding: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .hero-panel div:last-child {
+    border-right: 0;
+  }
+
+  .hero-panel strong {
+    font-size: 1.05rem;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .cert-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-glow-1,
+  .hero-glow-2 {
+    width: 70vw;
+    height: 70vw;
   }
 }
 
 @media (max-width: 680px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .site-header {
+    grid-template-columns: auto auto;
+    padding: 0.6rem clamp(0.75rem, 3vw, 1.5rem);
+    min-height: var(--header-height);
+  }
+
+  nav {
+    grid-column: 1 / -1;
+    gap: 0;
+    overflow-x: auto;
+    padding: 0 0 0.4rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.65rem;
+    white-space: nowrap;
+  }
+
   .nav-socials {
-    justify-content: end;
+    justify-content: flex-end;
+  }
+
+  .nav-socials a {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .hero {
+    gap: 2rem;
+    padding: 2rem 1rem 3rem;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 16vw, 4.8rem);
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
   }
 
-  .hero-actions,
-  .project-actions {
+  .hero h2 {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+  }
+
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 0.32rem 0.65rem;
+  }
+
+  .hero-intro {
+    font-size: 0.97rem;
+  }
+
+  .hero-actions {
     align-items: stretch;
     flex-direction: column;
   }
@@ -751,6 +839,38 @@ nav a:hover,
   .button-link,
   .project-actions a {
     width: 100%;
+    justify-content: center;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-panel div:last-child {
+    border-bottom: 0;
+  }
+
+  .hero-panel strong {
+    font-size: 1.1rem;
+  }
+
+  .section-shell {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.7rem, 7vw, 2.6rem);
+  }
+
+  .about-grid > .glass-card {
+    padding: 1rem;
   }
 
   .projects-grid,
@@ -764,13 +884,52 @@ nav a:hover,
     grid-column: auto;
   }
 
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .experience-card {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .experience-card > svg {
+    display: none;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .footer {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-glow-1,
+  .hero-glow-2 {
+    width: 90vw;
+    height: 90vw;
+    filter: blur(40px);
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: clamp(2.4rem, 14vw, 3.5rem);
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-body {
+    padding: 0.85rem;
   }
 }
 
@@ -784,7 +943,7 @@ nav a:hover,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }
+

@@ -133,15 +133,99 @@ nav a:hover,
 }
 
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.58fr);
   gap: clamp(1.4rem, 5vw, 4rem);
   align-items: center;
   min-height: calc(100vh - var(--header-height));
   padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 5rem);
+  overflow: hidden;
+}
+
+.hero-glow-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(45, 212, 191, 0.04) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 14s ease-in-out infinite alternate;
+}
+
+.hero-glow-2 {
+  position: absolute;
+  bottom: 5%;
+  right: -5%;
+  width: 45vw;
+  height: 45vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.08);
+  }
+  100% {
+    transform: translate(-20px, 25px) scale(0.95);
+  }
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 999px;
+  padding: 0.38rem 0.85rem;
+  background: rgba(34, 197, 94, 0.08);
+  backdrop-filter: blur(8px);
+  color: #4ade80;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.pulse-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: 860px;
 }
 
@@ -309,6 +393,12 @@ nav a:hover,
   background: rgba(6, 6, 6, 0.76);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
   backdrop-filter: blur(16px);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 14px 40px -10px rgba(56, 189, 248, 0.18);
 }
 
 .about-grid,

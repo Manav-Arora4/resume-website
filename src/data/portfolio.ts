@@ -97,9 +97,9 @@ export const portfolio = {
     },
     {
       label: 'Current',
-      title: 'Applied AI Projects',
-      meta: 'Computer vision, NLP, recommendations',
-      detail: 'Working on practical models with clear evaluation, usable interfaces, and explainable results.'
+      title: 'Open to AI/ML Roles',
+      meta: 'Full-Time & Internship Opportunities',
+      detail: 'Actively seeking AI/ML engineering, computer vision, NLP, and applied machine learning roles.'
     }
   ],
   skills: [

@@ -1,11 +1,11 @@
-import { FaEnvelope, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { GlassCard } from '../components/GlassCard';
 import { Section } from '../components/Section';
 import { portfolio } from '../data/portfolio';
 
 export function Contact() {
   return (
-    <Section id="contact" eyebrow="Contact" title="Let's build intelligent systems">
+    <Section id="contact" eyebrow="Contact" title="Get in touch">
       <div className="contact-grid">
         <GlassCard className="contact-links">
           {portfolio.contactItems.map((item) => {
@@ -43,18 +43,33 @@ export function Contact() {
             </span>
           </a>
         </GlassCard>
+
         <GlassCard className="static-contact-card">
-          <h3>Static-site friendly contact</h3>
+          <div className="contact-cta-icon" aria-hidden="true">
+            <FaEnvelope />
+          </div>
+          <h3>Open to opportunities</h3>
           <p>
-            GitHub Pages does not run a backend for forms, so this contact button opens an email draft directly.
+            I'm currently looking for AI/ML internships and entry-level roles. Whether you have a project, a role, or just want to connect — feel free to reach out.
           </p>
-          <a
-            className="button-link primary"
-            href={`mailto:${portfolio.email}?subject=Portfolio%20Opportunity%20for%20Manav%20Arora&body=Hi%20Manav,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20connect%20about...`}
-          >
-            <FaEnvelope aria-hidden="true" />
-            Email Me
-          </a>
+          <div className="contact-cta-actions">
+            <a
+              className="button-link primary"
+              href={`mailto:${portfolio.email}?subject=Opportunity%20for%20Manav%20Arora&body=Hi%20Manav,%0D%0A%0D%0A`}
+            >
+              <FaEnvelope aria-hidden="true" />
+              Send an email
+            </a>
+            <a
+              className="button-link ghost contact-linkedin"
+              href={portfolio.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin aria-hidden="true" />
+              Connect on LinkedIn
+            </a>
+          </div>
         </GlassCard>
       </div>
     </Section>

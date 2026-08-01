@@ -59,17 +59,19 @@ For a user site repository named `YOUR_GITHUB_USERNAME.github.io`, the URL will 
 https://YOUR_GITHUB_USERNAME.github.io/
 ```
 
-## Deploy to GitHub Pages with GitHub Actions
+## Deploy to GitHub Pages
 
-1. Create a GitHub repository for this portfolio.
-2. Push this project to the `main` or `master` branch.
-3. In GitHub, open the repository settings.
-4. Go to **Pages**.
-5. Set **Build and deployment** to **GitHub Actions**.
-6. Push a commit to `main` or `master`, or manually run the workflow from the **Actions** tab.
-7. GitHub Actions will install dependencies, build the Vite app, upload `dist`, and deploy it to GitHub Pages.
+Live site: https://manav-arora4.github.io/resume-website/
+
+1. Push this project to the `master` branch of `Manav-Arora4/resume-website`.
+2. In GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Set **Branch** to `gh-pages` and **Folder** to `/ (root)`.
+5. Save. GitHub Actions builds the site on every push to `master` and publishes the built files to the `gh-pages` branch.
 
 The workflow file is `.github/workflows/deploy.yml`.
+
+Important: do not deploy from the `master` branch root. That branch contains source code, so GitHub Pages would serve the dev `index.html` and the site would appear blank.
 
 This project is a static Vite build, so it works cleanly on GitHub Pages. The included `.nojekyll` file prevents GitHub Pages from treating built assets as a Jekyll site.
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">YOLO cone detection screenshot placeholder</title>
+  <desc id="desc">Computer vision detection placeholder with bounding boxes around traffic cones.</desc>
+  <rect width="1200" height="675" fill="#07111f"/>
+  <rect x="82" y="70" width="1036" height="535" rx="24" fill="#0d192b" stroke="#31536a"/>
+  <path d="M82 470 C250 390 360 408 500 440 C700 488 842 350 1118 408 V605 H82Z" fill="#14243a"/>
+  <path d="M262 466 L338 248 L414 466 Z" fill="#f97316"/>
+  <path d="M562 484 L632 286 L702 484 Z" fill="#f97316"/>
+  <path d="M832 454 L890 310 L948 454 Z" fill="#f97316"/>
+  <path d="M292 378 H384 M586 394 H678 M850 378 H930" stroke="#f8fafc" stroke-width="18"/>
+  <rect x="238" y="220" width="202" height="270" fill="none" stroke="#38bdf8" stroke-width="10"/>
+  <rect x="534" y="260" width="196" height="248" fill="none" stroke="#2dd4bf" stroke-width="10"/>
+  <rect x="806" y="286" width="166" height="190" fill="none" stroke="#fbbf24" stroke-width="10"/>
+  <text x="250" y="205" fill="#38bdf8" font-family="Arial" font-size="34" font-weight="700">cone 0.94</text>
+</svg>

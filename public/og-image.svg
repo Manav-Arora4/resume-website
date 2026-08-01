@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">Manav Arora AI and Machine Learning Engineer</title>
+  <rect width="1200" height="630" fill="#07111f"/>
+  <rect x="70" y="70" width="1060" height="490" rx="28" fill="#0d192b" stroke="#31536a"/>
+  <text x="120" y="255" fill="#f8fafc" font-family="Arial" font-size="88" font-weight="800">Manav Arora</text>
+  <text x="126" y="340" fill="#67e8f9" font-family="Arial" font-size="46" font-weight="700">AI &amp; Machine Learning Engineer</text>
+  <text x="126" y="420" fill="#cbd5e1" font-family="Arial" font-size="30">Computer Vision • NLP • Data Science • Generative AI</text>
+  <circle cx="958" cy="266" r="86" fill="none" stroke="#38bdf8" stroke-width="24"/>
+  <path d="M958 180 A86 86 0 0 1 1044 266" fill="none" stroke="#fbbf24" stroke-width="24"/>
+</svg>

@@ -42,21 +42,13 @@ npm run preview
 ## Connect It to Your GitHub Profile
 
 1. Publish this portfolio with GitHub Pages.
-2. Open your GitHub profile repository. It should be named exactly like your username, for example `manavarora/manavarora`.
-3. Edit the profile repository `README.md`.
-4. Use the markdown in `GITHUB_PROFILE_SNIPPET.md`.
-5. Replace `YOUR_GITHUB_USERNAME`, `YOUR_REPOSITORY_NAME`, and `YOUR_LINKEDIN_SLUG`.
+2. Open your profile repository at `https://github.com/Manav-Arora4/Manav-Arora4`.
+3. Add your live portfolio link to the profile README:
 
-For a normal project repository, the portfolio URL will usually be:
-
-```text
-https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME/
-```
-
-For a user site repository named `YOUR_GITHUB_USERNAME.github.io`, the URL will be:
-
-```text
-https://YOUR_GITHUB_USERNAME.github.io/
+```md
+- Portfolio: https://manav-arora4.github.io/resume-website/
+- Resume: https://manav-arora4.github.io/resume-website/Manav_Arora_Resume_Latest.pdf
+- LinkedIn: https://www.linkedin.com/in/manav-arora4
 ```
 
 ## Deploy to GitHub Pages

@@ -176,7 +176,7 @@ export const portfolio = {
     },
     {
       title: 'YOLOv11 Cone Detection',
-      image: unsplashPhoto('photo-1516822003754-cca485356ecb'),
+      image: assetPath('cone-detection.jpg'),
       fallbackImage: assetPath('project-vision.svg'),
       description:
         'Custom computer vision model trained to detect cones in image, webcam, and video streams for real-time inference.',

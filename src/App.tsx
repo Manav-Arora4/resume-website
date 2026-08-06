@@ -1,7 +1,6 @@
 import { About } from './sections/About';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
-import { Experience } from './sections/Experience';
 import { Footer } from './sections/Footer';
 // import { GitHubStats } from './sections/GitHubStats';
 import { Hero } from './sections/Hero';
@@ -18,7 +17,6 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
-        <Experience />
         <Certifications />
         {/* <GitHubStats /> */}
         <Contact />

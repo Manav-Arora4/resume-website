@@ -56,7 +56,7 @@ export const portfolio = {
   name: 'Manav Arora',
   title: 'AI & Machine Learning Student',
   intro:
-    'AI/ML student focused on building end-to-end systems in financial NLP, real-time inference, computer vision, and recommendation engines.',
+    'AI/ML student focused on building end-to-end systems in machine learning, computer vision, NLP, and recommendation engines.',
   resumeUrl: assetPath('Manav_Arora_Resume_Latest.pdf'),
   resumeLinks: [
     { label: 'Latest Resume', href: assetPath('Manav_Arora_Resume_Latest.pdf') },
@@ -280,6 +280,22 @@ export const portfolio = {
   certifications: [
     'Supervised Machine Learning: Regression and Classification - Stanford Online',
     'Advanced Learning Algorithms - Stanford Online'
+  ],
+  certificates: [
+    {
+      title: 'Advanced Learning Algorithms',
+      issuer: 'DeepLearning.AI & Stanford Online',
+      date: 'Nov 16, 2024',
+      image: assetPath('cert-advanced-learning-algorithms.png'),
+      verifyUrl: 'https://coursera.org/verify/O06W4KNY6QWU'
+    },
+    {
+      title: 'Supervised Machine Learning: Regression and Classification',
+      issuer: 'DeepLearning.AI & Stanford Online',
+      date: 'Sep 9, 2024',
+      image: assetPath('cert-supervised-machine-learning.png'),
+      verifyUrl: 'https://coursera.org/verify/1ODCA1GHQ5NA'
+    }
   ],
   contactItems: [
     { label: 'Email', value: 'manav-manu-arora@outlook.com', href: 'mailto:manav-manu-arora@outlook.com', icon: FaEnvelope },

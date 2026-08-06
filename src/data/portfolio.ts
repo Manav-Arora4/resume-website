@@ -172,7 +172,7 @@ export const portfolio = {
       features: ['Steam OpenID login', '50.8K game catalog', 'MMR diversity re-ranking', 'Explainable recommendations', '5-fold CV evaluation'],
       results: 'Achieved 17.32% Hit Rate @ 20 and 12.14% catalog coverage across 1.47M test users under strict leak-free 5-fold cross-validation.',
       githubUrl: 'https://github.com/Manav-Arora4/game-recommendation-system',
-      demoUrl: '#'
+      demoUrl: 'https://recommendation-btw-sand.vercel.app/'
     },
     {
       title: 'Financial Statement Analyzer',

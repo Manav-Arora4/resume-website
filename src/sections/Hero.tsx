@@ -88,7 +88,7 @@ export function Hero() {
           <div className="hero-stats-list">
             <div className="hero-stat-item">
               <span>Focus</span>
-              <strong>Applied AI & Recommendation Systems</strong>
+              <strong>Applied AI</strong>
             </div>
             <div className="hero-stat-item">
               <span>Shipped</span>

@@ -163,6 +163,18 @@ export const portfolio = {
   ],
   projects: [
     {
+      title: 'Steam Game Recommendation System',
+      image: unsplashPhoto('photo-1612287230202-1ff1d85d1bdf'),
+      fallbackImage: assetPath('project-recommendation.svg'),
+      description:
+        'Full-stack hybrid recommendation engine for 50K+ Steam games combining BPR Matrix Factorization, FAISS sentence embeddings, playtime confidence, and MMR diversity re-ranking.',
+      technologies: ['FastAPI', 'Next.js', 'BPR Matrix Factorization', 'FAISS', 'SentenceTransformers', 'PostgreSQL', 'Redis'],
+      features: ['Steam OpenID login', '50.8K game catalog', 'MMR diversity re-ranking', 'Explainable recommendations', '5-fold CV evaluation'],
+      results: 'Achieved 17.32% Hit Rate @ 20 and 12.14% catalog coverage across 1.47M test users under strict leak-free 5-fold cross-validation.',
+      githubUrl: 'https://github.com/Manav-Arora4/game-recommendation-system',
+      demoUrl: '#'
+    },
+    {
       title: 'Financial Statement Analyzer',
       image: unsplashPhoto('photo-1551288049-bebda4e38f71'),
       fallbackImage: assetPath('project-financial.svg'),

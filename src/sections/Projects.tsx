@@ -6,9 +6,9 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Featured Projects"
-      title="Applied machine learning work"
-      intro="Each card is fed from the central portfolio data file, so screenshots, links, metrics, and copy can be replaced without touching the components."
+      eyebrow="Projects"
+      title="Featured AI & ML Projects"
+      intro="Check out some of my machine learning & AI projects, meticulously crafted with focus and dedication."
     >
       <div className="projects-grid">
         {portfolio.projects.map((project, index) => (

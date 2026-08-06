@@ -5,7 +5,12 @@ import { portfolio } from '../data/portfolio';
 
 export function Certifications() {
   return (
-    <Section id="certifications" eyebrow="Credentials" title="Certifications">
+    <Section
+      id="certificates"
+      eyebrow="Certificates"
+      title="Certifications & Credentials"
+      intro="Official certifications from Stanford Online and DeepLearning.AI in Machine Learning and Advanced Algorithms."
+    >
       <div className="cert-grid">
         {portfolio.certifications.map((cert) => (
           <GlassCard key={cert} className="cert-card">

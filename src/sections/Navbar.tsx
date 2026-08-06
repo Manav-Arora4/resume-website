@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { portfolio } from '../data/portfolio';
 
-const navItems = ['about', 'skills', 'projects', 'experience', 'contact'];
+const navItems = [
+  { label: 'About me', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Certificates', href: '#certificates' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact me', href: '#contact' },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,12 +23,13 @@ export function Navbar() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <a className="brand" href="#home" aria-label="Go to top">
-        MA
+        <span>Manav</span>
+        <span className="brand-dot">.ai</span>
       </a>
       <nav aria-label="Primary navigation">
         {navItems.map((item) => (
-          <a key={item} href={`#${item}`}>
-            {item}
+          <a key={item.label} href={item.href}>
+            {item.label}
           </a>
         ))}
       </nav>

@@ -6,9 +6,9 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      eyebrow="Skills"
-      title="Technical toolkit"
-      intro="Grouped by the areas most relevant to junior AI/ML engineering work."
+      eyebrow="My Skills"
+      title="Technical toolkit & expertise"
+      intro="Core machine learning frameworks, computer vision libraries, web systems, and data tools."
     >
       <div className="skills-groups">
         {portfolio.skills.map((group) => (

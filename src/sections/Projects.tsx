@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { Section } from '../components/Section';
 import { portfolio } from '../data/portfolio';
 
 export function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const activeProject = portfolio.projects[activeIndex] || portfolio.projects[0];
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -220 : 220;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <Section
@@ -18,23 +27,43 @@ export function Projects() {
       <div className="project-showcase-container">
         {/* Left Column: Thumbnails Selector + Active Project Details */}
         <div className="project-showcase-left">
-          {/* Project Thumbnails Row */}
-          <div className="project-thumbs-row" aria-label="Select a project">
-            {portfolio.projects.map((project, idx) => {
-              const isActive = idx === activeIndex;
-              return (
-                <button
-                  key={project.title}
-                  type="button"
-                  onClick={() => setActiveIndex(idx)}
-                  className={`project-thumb-btn ${isActive ? 'is-active' : ''}`}
-                  aria-label={`View ${project.title}`}
-                >
-                  <img src={project.image} alt={project.title} />
-                  <span>{project.title}</span>
-                </button>
-              );
-            })}
+          {/* Project Thumbnails Row with Controls */}
+          <div className="project-slider-wrapper">
+            <button
+              type="button"
+              onClick={() => scroll('left')}
+              className="project-slider-arrow left"
+              aria-label="Scroll project thumbnails left"
+            >
+              <FaChevronLeft />
+            </button>
+
+            <div ref={scrollRef} className="project-thumbs-row" aria-label="Select a project">
+              {portfolio.projects.map((project, idx) => {
+                const isActive = idx === activeIndex;
+                return (
+                  <button
+                    key={project.title}
+                    type="button"
+                    onClick={() => setActiveIndex(idx)}
+                    className={`project-thumb-btn ${isActive ? 'is-active' : ''}`}
+                    aria-label={`View ${project.title}`}
+                  >
+                    <img src={project.image} alt={project.title} />
+                    <span>{project.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scroll('right')}
+              className="project-slider-arrow right"
+              aria-label="Scroll project thumbnails right"
+            >
+              <FaChevronRight />
+            </button>
           </div>
 
           {/* Connection Line Graphic */}

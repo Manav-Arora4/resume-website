@@ -211,6 +211,18 @@ export const portfolio = {
       demoUrl: '#'
     },
     {
+      title: 'Anime Recommendation System',
+      image: unsplashPhoto('photo-1578632767115-351597cf2477'),
+      fallbackImage: assetPath('project-recommendation.svg'),
+      description:
+        'Hybrid anime recommendation engine using the MyAnimeList dataset for personalized ranking.',
+      technologies: ['Recommendation Engine', 'Collaborative Filtering', 'NumPy', 'Matrix Factorization'],
+      features: ['4.7K users', '500 items', '5K interactions', 'Serialized model inference'],
+      results: 'Implemented custom gradient descent with 46-dimensional latent factors, reaching RMSE 0.1368 and MAE 0.1227.',
+      githubUrl: 'https://github.com/Manav-Arora4/CollborativeFilteringRecommender',
+      demoUrl: '#'
+    },
+    {
       title: 'FPS Prediction',
       image: unsplashPhoto('photo-1511512578047-dfb367046420'),
       fallbackImage: assetPath('project-regression.svg'),
@@ -232,18 +244,6 @@ export const portfolio = {
       features: ['Missing value handling', 'Feature selection', 'Model evaluation', 'Visualization dashboard'],
       results: 'Produced a clean training workflow and visual explanations for the strongest pricing signals.',
       githubUrl: 'https://github.com/Manav-Arora4/house-price-prediction-regression',
-      demoUrl: '#'
-    },
-    {
-      title: 'Anime Recommendation System',
-      image: unsplashPhoto('photo-1578632767115-351597cf2477'),
-      fallbackImage: assetPath('project-recommendation.svg'),
-      description:
-        'Hybrid anime recommendation engine using the MyAnimeList dataset for personalized ranking.',
-      technologies: ['Recommendation Engine', 'Collaborative Filtering', 'NumPy', 'Matrix Factorization'],
-      features: ['4.7K users', '500 items', '5K interactions', 'Serialized model inference'],
-      results: 'Implemented custom gradient descent with 46-dimensional latent factors, reaching RMSE 0.1368 and MAE 0.1227.',
-      githubUrl: 'https://github.com/Manav-Arora4/CollborativeFilteringRecommender',
       demoUrl: '#'
     }
   ] satisfies Project[],

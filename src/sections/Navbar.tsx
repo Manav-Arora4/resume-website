@@ -23,8 +23,7 @@ export function Navbar() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <a className="brand" href="#home" aria-label="Go to top">
-        <span>Manav</span>
-        <span className="brand-dot">.ai</span>
+        Manav Arora
       </a>
       <nav aria-label="Primary navigation">
         {navItems.map((item) => (

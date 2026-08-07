@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { Section } from '../components/Section';
@@ -7,14 +7,27 @@ import { portfolio } from '../data/portfolio';
 export function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const activeThumbRef = useRef<HTMLButtonElement>(null);
 
-  const activeProject = portfolio.projects[activeIndex] || portfolio.projects[0];
+  const projects = portfolio.projects;
+  const activeProject = projects[activeIndex] || projects[0];
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -220 : 220;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  useEffect(() => {
+    if (activeThumbRef.current) {
+      activeThumbRef.current.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
     }
+  }, [activeIndex]);
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -31,19 +44,20 @@ export function Projects() {
           <div className="project-slider-wrapper">
             <button
               type="button"
-              onClick={() => scroll('left')}
+              onClick={handlePrev}
               className="project-slider-arrow left"
-              aria-label="Scroll project thumbnails left"
+              aria-label="Previous project"
             >
               <FaChevronLeft />
             </button>
 
             <div ref={scrollRef} className="project-thumbs-row" aria-label="Select a project">
-              {portfolio.projects.map((project, idx) => {
+              {projects.map((project, idx) => {
                 const isActive = idx === activeIndex;
                 return (
                   <button
                     key={project.title}
+                    ref={isActive ? activeThumbRef : null}
                     type="button"
                     onClick={() => setActiveIndex(idx)}
                     className={`project-thumb-btn ${isActive ? 'is-active' : ''}`}
@@ -58,9 +72,9 @@ export function Projects() {
 
             <button
               type="button"
-              onClick={() => scroll('right')}
+              onClick={handleNext}
               className="project-slider-arrow right"
-              aria-label="Scroll project thumbnails right"
+              aria-label="Next project"
             >
               <FaChevronRight />
             </button>

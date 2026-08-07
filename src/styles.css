@@ -1384,9 +1384,33 @@ nav a:hover {
 
   .hero-portrait-wrapper {
     margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-showcase-right {
+    position: relative;
+    top: 0;
+    order: -1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-connect-line,
+  .cert-node-line-wrapper {
+    display: none;
   }
 
   .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-panel-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1400,9 +1424,20 @@ nav a:hover {
     --header-height: 60px;
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  .section-shell {
+    width: calc(100% - 1.25rem);
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+
   .site-header {
     grid-template-columns: auto auto;
-    padding: 0.6rem clamp(0.75rem, 3vw, 1.5rem);
+    padding: 0.6rem clamp(0.75rem, 3vw, 1.25rem);
     min-height: var(--header-height);
   }
 
@@ -1412,33 +1447,217 @@ nav a:hover {
     white-space: nowrap;
   }
 
+  .hero {
+    padding: 1.5rem 0.5rem 2.5rem;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .hero h1 {
-    font-size: clamp(2.6rem, 13vw, 4.2rem);
+    font-size: clamp(2.4rem, 12vw, 3.8rem);
   }
 
   .hero h2 {
-    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
   }
 
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
   }
 
   .button-link {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
   }
 
-  .projects-grid,
-  .skill-grid,
-  .cert-grid {
+  .hero-portrait-card {
+    max-width: 100%;
+    padding: 1.2rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Projects Section Mobile Fix */
+  .project-showcase-container,
+  .project-showcase-left,
+  .project-showcase-right {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .project-slider-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-thumbs-row {
+    width: calc(100% - 4.4rem);
+    min-width: 0;
+    gap: 0.5rem;
+    padding: 0.2rem 0.1rem 0.5rem;
+  }
+
+  .project-slider-arrow {
+    width: 1.85rem;
+    height: 1.85rem;
+    font-size: 0.8rem;
+  }
+
+  .project-thumb-btn {
+    flex: 0 0 95px;
+    height: 65px;
+  }
+
+  .active-project-details {
+    padding: 1.2rem;
+    border-radius: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+
+  .active-project-details h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-actions a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Skills Section Mobile Fix */
+  .skills-tabs-bar {
+    gap: 0.35rem;
+    padding: 0.3rem;
+  }
+
+  .skills-tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .skills-panel-box {
+    padding: 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .skills-panel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .skills-item-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .skills-icon-circle {
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1.15rem;
+  }
+
+  .skills-item-name {
+    font-size: 0.85rem;
+  }
+
+  .skills-tooling-box {
+    padding: 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .skills-pills-row {
+    gap: 0.45rem;
+  }
+
+  .skills-pill-tag {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Certifications Mobile Fix */
+  .cert-focus-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cert-carousel-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .cert-focus-card {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 11;
+  }
+
+  .cert-details-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+
+  .cert-details-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .cta-banner-section,
+  .cta-banner-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cta-banner-card {
+    padding: 2rem 1rem;
+  }
+
+  .cta-banner-card h2 {
+    font-size: 1.7rem;
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-links {
+    padding: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
   }
 
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-panel-grid {
+    grid-template-columns: 1fr;
   }
 }
 

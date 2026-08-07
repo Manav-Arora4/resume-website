@@ -1,32 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCode, FaLaptopCode, FaBrain, FaEye, FaDatabase, FaTools } from 'react-icons/fa';
+import { FaCode, FaLaptopCode, FaBrain, FaCloud, FaDatabase, FaTools } from 'react-icons/fa';
 import { Section } from '../components/Section';
 import { portfolio } from '../data/portfolio';
 
 const categoryIcons: Record<string, any> = {
+  Languages: FaCode,
   Programming: FaCode,
   'Machine Learning': FaBrain,
-  'Computer Vision': FaEye,
+  Frameworks: FaLaptopCode,
   'Web Development': FaLaptopCode,
   Databases: FaDatabase,
+  'Cloud & Hosting': FaCloud,
   Tools: FaTools,
 };
-
-const toolingPills = [
-  'Git',
-  'GitHub',
-  'VS Code',
-  'Google Colab',
-  'Jupyter Notebook',
-  'Power BI',
-  'REST APIs',
-  'Postman',
-  'Vercel',
-  'ONNX Export',
-  'FastAPI',
-  'Docker',
-];
 
 export function Skills() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -91,18 +78,6 @@ export function Skills() {
             </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Bottom AI & Developer Tooling Row */}
-        <div className="skills-tooling-box">
-          <h4 className="skills-tooling-title">AI & Developer Tooling</h4>
-          <div className="skills-pills-row">
-            {toolingPills.map((pill) => (
-              <span key={pill} className="skills-pill-tag">
-                {pill}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </Section>
   );

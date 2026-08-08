@@ -12,6 +12,8 @@ import {
   FaReact
 } from 'react-icons/fa';
 import {
+  SiDocker,
+  SiFastapi,
   SiGit,
   SiGooglecolab,
   SiJupyter,
@@ -20,11 +22,15 @@ import {
   SiNumpy,
   SiOpencv,
   SiPandas,
+  SiPostgresql,
   SiPytorch,
-  SiSharp,
+  SiRedis,
+  SiRender,
   SiScikitlearn,
+  SiSharp,
   SiTailwindcss,
-  SiTensorflow
+  SiTensorflow,
+  SiVercel
 } from 'react-icons/si';
 import { TbBrandVscode } from 'react-icons/tb';
 import type { IconType } from 'react-icons';
@@ -49,6 +55,7 @@ export type Project = {
   results: string;
   githubUrl: string;
   demoUrl: string;
+  disclaimer?: string;
 };
 
 // Update this one file to refresh copy, links, projects, skills, and stats across the site.
@@ -104,7 +111,7 @@ export const portfolio = {
   ],
   skills: [
     {
-      category: 'Programming',
+      category: 'Languages',
       items: [
         { name: 'Python', level: 92, icon: FaPython },
         { name: 'SQL', level: 82 },
@@ -119,45 +126,48 @@ export const portfolio = {
         { name: 'NLP', level: 84 },
         { name: 'TensorFlow', level: 76, icon: SiTensorflow },
         { name: 'PyTorch', level: 78, icon: SiPytorch },
+        { name: 'Recommendation Systems', level: 88 },
+        { name: 'FAISS', level: 80 },
+        { name: 'Computer Vision', level: 82, icon: SiOpencv },
         { name: 'Pandas', level: 88, icon: SiPandas },
         { name: 'NumPy', level: 86, icon: SiNumpy }
       ]
     },
     {
-      category: 'Computer Vision',
+      category: 'Frameworks',
       items: [
-        { name: 'OpenCV', level: 82, icon: SiOpencv },
-        { name: 'YOLOv11', level: 80 },
-        { name: 'Ultralytics', level: 78 }
-      ]
-    },
-    {
-      category: 'Web Development',
-      items: [
+        { name: 'FastAPI', level: 86, icon: SiFastapi },
         { name: 'Flask', level: 84, icon: FaFlask },
-        { name: 'REST APIs', level: 86 },
-        { name: 'React', level: 78, icon: FaReact },
-        { name: 'HTML', level: 88, icon: FaHtml5 },
-        { name: 'CSS', level: 84, icon: FaCss3Alt },
-        { name: 'Tailwind', level: 80, icon: SiTailwindcss }
+        { name: 'React', level: 78, icon: FaReact }
       ]
     },
     {
       category: 'Databases',
       items: [
+        { name: 'PostgreSQL', level: 84, icon: SiPostgresql },
+        { name: 'Redis', level: 80, icon: SiRedis },
         { name: 'MySQL', level: 78, icon: SiMysql },
         { name: 'MongoDB', level: 72, icon: SiMongodb }
+      ]
+    },
+    {
+      category: 'Cloud & Hosting',
+      items: [
+        { name: 'Vercel', level: 85, icon: SiVercel },
+        { name: 'Render', level: 80, icon: SiRender },
+        { name: 'Neon', level: 80 },
+        { name: 'Upstash', level: 78 }
       ]
     },
     {
       category: 'Tools',
       items: [
         { name: 'Git', level: 82, icon: SiGit },
+        { name: 'Docker', level: 78, icon: SiDocker },
+        { name: 'Power BI', level: 74 },
         { name: 'GitHub', level: 84, icon: FaGithub },
         { name: 'VS Code', level: 88, icon: TbBrandVscode },
-        { name: 'Google Colab', level: 82, icon: SiGooglecolab },
-        { name: 'Jupyter Notebook', level: 86, icon: SiJupyter },
-        { name: 'Power BI', level: 74 }
+        { name: 'Jupyter', level: 86, icon: SiJupyter }
       ]
     }
   ],
@@ -179,72 +189,73 @@ export const portfolio = {
       image: unsplashPhoto('photo-1551288049-bebda4e38f71'),
       fallbackImage: assetPath('project-financial.svg'),
       description:
-        'AI-powered financial analysis app that reviews SEC 10-Q filings and converts raw EDGAR data into structured datasets and financial insights.',
-      technologies: ['OpenAI API', 'Anthropic API', 'Flask', 'SEC-API', 'FMP API'],
+        'Enterprise financial NLP & SEC 10-Q filing analysis pipeline engineered for Plattr.io, converting raw EDGAR disclosures into structured financial data, risk signals, and executive summaries.',
+      technologies: ['OpenAI API', 'Anthropic API', 'Flask', 'SEC-API', 'Financial Modeling Prep', 'Python'],
       features: ['45+ filing pipeline', '14 REST endpoints', 'Chunked LLM processing', 'Financial signal extraction'],
-      results: 'Processed documents up to about 8MB and extracted structured metrics, risks, and key company signals from 10-Q filings.',
-      githubUrl: 'https://github.com/Manav-Arora4',
-      demoUrl: '#'
+      results: 'Built for Plattr.io (Proprietary / Under NDA). Processed 45+ 10-Q filings, extracting structured metrics, financial risks, and corporate signals.',
+      githubUrl: '',
+      demoUrl: '',
+      disclaimer: 'Enterprise Project for Plattr.io (Proprietary / Under NDA)'
     },
     {
-      title: 'YOLOv11 Cone Detection',
+      title: 'Project Airavat - YOLOv11 Cone Detection',
       image: assetPath('cone-detection.jpg'),
       fallbackImage: assetPath('project-vision.svg'),
       description:
-        'Custom computer vision model trained to detect cones in image, webcam, and video streams for real-time inference.',
-      technologies: ['YOLOv11', 'OpenCV', 'ONNX', 'Computer Vision'],
-      features: ['962 image dataset', '1,736 annotations', '100 epoch training', 'Edge-compatible export'],
-      results: 'Built a lightweight model around 5.5MB and exported ONNX format for cross-platform embedded deployment.',
-      githubUrl: 'https://github.com/Manav-Arora4',
-      demoUrl: '#'
+        'Autonomous computer vision model developed for the International Space Drone Competition (ISDC) with OutPulse, detecting cones in image, webcam, and aerial video streams for real-time edge navigation.',
+      technologies: ['YOLOv11', 'OpenCV', 'ONNX', 'Computer Vision', 'Edge AI', 'Python'],
+      features: ['ISDC Drone Competition', '962 image dataset', '1,736 annotations', '100 epoch training', 'ONNX edge deployment'],
+      results: 'Trained custom 5.5MB model and exported to ONNX format, achieving robust real-time cone detection on low-power edge hardware for drone navigation.',
+      githubUrl: 'https://github.com/Manav-Arora4/ProjectAiravat',
+      demoUrl: ''
     },
     {
       title: 'Phishing Email Detection',
       image: unsplashPhoto('photo-1526374965328-7f61d4dc18c5'),
       fallbackImage: assetPath('project-nlp.svg'),
       description:
-        'NLP classification system that identifies suspicious emails using text, URL, and HTML-based signals.',
-      technologies: ['NLP', 'Scikit-learn', 'Naive Bayes', 'REST API'],
+        'Machine learning and NLP classification pipeline designed to detect phishing and malicious emails using textual features, URL patterns, and HTML structure analysis.',
+      technologies: ['NLP', 'Scikit-learn', 'Naive Bayes', 'REST API', 'Feature Engineering'],
       features: ['164K+ email dataset', '20K+ token vocabulary', 'Browser extension', 'Feedback-driven retraining'],
-      results: 'Achieved 96.7% accuracy, 0.953 F1-score, about 1.9% false positive rate, and sub-100ms inference.',
+      results: 'Achieved 96.7% accuracy, 0.953 F1-score, about 1.9% false positive rate, and sub-100ms inference time.',
       githubUrl: 'https://github.com/Manav-Arora4/PhishingDetector',
-      demoUrl: '#'
+      demoUrl: ''
     },
     {
       title: 'Anime Recommendation System',
       image: unsplashPhoto('photo-1578632767115-351597cf2477'),
       fallbackImage: assetPath('project-recommendation.svg'),
       description:
-        'Hybrid anime recommendation engine using the MyAnimeList dataset for personalized ranking.',
+        'Matrix factorization and collaborative filtering recommender system trained on MyAnimeList data with custom latent factor representations.',
       technologies: ['Recommendation Engine', 'Collaborative Filtering', 'NumPy', 'Matrix Factorization'],
       features: ['4.7K users', '500 items', '5K interactions', 'Serialized model inference'],
-      results: 'Implemented custom gradient descent with 46-dimensional latent factors, reaching RMSE 0.1368 and MAE 0.1227.',
+      results: 'Engineered 46-dimensional latent factors via gradient descent, achieving RMSE 0.1368 and MAE 0.1227 across 4.7K users and 500 items.',
       githubUrl: 'https://github.com/Manav-Arora4/CollborativeFilteringRecommender',
-      demoUrl: '#'
+      demoUrl: ''
     },
     {
       title: 'FPS Prediction',
       image: unsplashPhoto('photo-1511512578047-dfb367046420'),
       fallbackImage: assetPath('project-regression.svg'),
       description:
-        'Regression model that estimates expected FPS from hardware and game configuration data.',
-      technologies: ['Regression', 'Machine Learning', 'Data Analysis'],
+        'Supervised machine learning regression model that predicts gaming frames per second (FPS) across diverse hardware configurations, resolution benchmarks, and graphics settings.',
+      technologies: ['Regression', 'Machine Learning', 'Data Analysis', 'Scikit-learn'],
       features: ['Data cleaning', 'Exploratory analysis', 'Model training', 'Error analysis'],
-      results: 'Converted performance data into actionable estimates for comparing hardware and settings tradeoffs.',
+      results: 'Trained regression models with data cleaning, feature encoding, and error analysis to provide accurate frame rate estimations.',
       githubUrl: 'https://github.com/Manav-Arora4/fpsPrediction',
-      demoUrl: '#'
+      demoUrl: ''
     },
     {
       title: 'House Price Prediction',
       image: unsplashPhoto('photo-1560518883-ce09059eeffa'),
       fallbackImage: assetPath('project-housing.svg'),
       description:
-        'End-to-end regression project for predicting home prices with feature engineering and visual analysis.',
-      technologies: ['Regression', 'Feature Engineering', 'Data Visualization'],
+        'End-to-end regression model for predicting residential real estate prices through rigorous data cleaning, multivariable feature engineering, and statistical modeling.',
+      technologies: ['Regression', 'Feature Engineering', 'Data Visualization', 'Scikit-learn'],
       features: ['Missing value handling', 'Feature selection', 'Model evaluation', 'Visualization dashboard'],
-      results: 'Produced a clean training workflow and visual explanations for the strongest pricing signals.',
-      githubUrl: 'https://github.com/Manav-Arora4/house-price-prediction-regression',
-      demoUrl: '#'
+      results: 'Analyzed key price drivers, handled missing values and outliers, and produced visual feature importance insights.',
+      githubUrl: 'https://github.com/Manav-Arora4/housePricePrediction/tree/main',
+      demoUrl: ''
     }
   ] satisfies Project[],
   experience: [

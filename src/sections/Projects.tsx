@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub, FaLock } from 'react-icons/fa';
 import { Section } from '../components/Section';
 import { portfolio } from '../data/portfolio';
 
@@ -115,16 +115,25 @@ export function Projects() {
               <div className="result">{activeProject.results}</div>
 
               <div className="project-actions">
-                <a
-                  href={activeProject.githubUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="button-link ghost"
-                >
-                  <FaGithub aria-hidden="true" />
-                  GitHub
-                </a>
-                {activeProject.demoUrl && activeProject.demoUrl !== '#' && (
+                {activeProject.disclaimer ? (
+                  <div className="project-disclaimer-pill" title="Proprietary code under NDA">
+                    <FaLock aria-hidden="true" />
+                    <span>{activeProject.disclaimer}</span>
+                  </div>
+                ) : (
+                  activeProject.githubUrl && (
+                    <a
+                      href={activeProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button-link ghost"
+                    >
+                      <FaGithub aria-hidden="true" />
+                      GitHub Repo
+                    </a>
+                  )
+                )}
+                {activeProject.demoUrl && activeProject.demoUrl !== '#' && activeProject.demoUrl !== '' && (
                   <a
                     href={activeProject.demoUrl}
                     target="_blank"

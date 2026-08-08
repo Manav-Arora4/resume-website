@@ -1005,6 +1005,24 @@ nav a:hover {
   border-color: rgba(139, 92, 246, 0.6);
 }
 
+.project-disclaimer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.6rem;
+  border: 1px dashed rgba(245, 158, 11, 0.5);
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.project-disclaimer-pill svg {
+  color: #f59e0b;
+  font-size: 0.95rem;
+}
+
 /* Timeline & Experience Section */
 .timeline {
   display: grid;

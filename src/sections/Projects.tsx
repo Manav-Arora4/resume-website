@@ -9,15 +9,25 @@ export function Projects() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const activeThumbRef = useRef<HTMLButtonElement>(null);
 
+  const isFirstMount = useRef(true);
+
   const projects = portfolio.projects;
   const activeProject = projects[activeIndex] || projects[0];
 
   useEffect(() => {
-    if (activeThumbRef.current) {
-      activeThumbRef.current.scrollIntoView({
-        behavior: 'smooth',
-        inline: 'center',
-        block: 'nearest'
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    if (activeThumbRef.current && scrollRef.current) {
+      const container = scrollRef.current;
+      const element = activeThumbRef.current;
+      const elementLeft = element.offsetLeft;
+      const elementWidth = element.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      container.scrollTo({
+        left: elementLeft - containerWidth / 2 + elementWidth / 2,
+        behavior: 'smooth'
       });
     }
   }, [activeIndex]);

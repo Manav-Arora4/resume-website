@@ -63,7 +63,7 @@ export const portfolio = {
   name: 'Manav Arora',
   title: 'AI & Machine Learning Student',
   intro:
-    'AI/ML student focused on building end-to-end systems in machine learning, computer vision, NLP, and recommendation engines.',
+    'AI/ML student focused on building intelligent systems in financial NLP, recommendation engines, and real-time inference. Experienced in building AI applications using LLMs, APIs, and modern backend technologies.',
   resumeUrl: assetPath('Manav_Arora_Resume_Latest.pdf'),
   resumeLinks: [
     { label: 'Latest Resume', href: assetPath('Manav_Arora_Resume_Latest.pdf') },
@@ -79,26 +79,26 @@ export const portfolio = {
     linkedin: 'https://www.linkedin.com/in/manav-arora4'
   },
   about: [
-    'AI & ML student at Atlas SkillTech University, graduating in May 2027.',
-    'Experienced in production-style pipelines that combine LLMs, REST APIs, financial data, OpenCV, YOLOv11, and edge deployment.',
-    'Looking for AI/ML internship and entry-level opportunities in machine learning, computer vision, NLP, recommendation systems, and applied AI.'
+    'AI & ML student at Atlas SkillTech University, Mumbai (Graduating in June 2027).',
+    'Experienced in building production-style AI systems combining LLMs, financial NLP, OpenCV, YOLOv11, and edge deployment.',
+    'Looking for AI/ML engineering, recommendation systems, and applied AI opportunities.'
   ],
   timeline: [
     {
       label: 'University',
-      title: 'B.Tech in Computer Science with Machine Learning and AI',
-      meta: 'Atlas SkillTech University',
+      title: 'B.Tech in Computer Science, Artificial Intelligence & Machine Learning',
+      meta: 'Atlas SkillTech University (Graduation: June 2027)',
       detail: 'Mumbai-based undergraduate program focused on AI/ML, software systems, and applied machine learning projects.'
     },
     {
       label: 'Internship',
       title: 'Plattr.io AI Intern',
       meta: 'May 2025 - July 2025',
-      detail: 'Built a financial analysis pipeline processing 45+ SEC 10-Q filings with OpenAI, Anthropic, SEC-API, and Flask REST APIs.'
+      detail: 'Built an end-to-end financial analysis pipeline processing 10-Q filings with SEC-API, OpenAI, Anthropic, and 14 Flask REST APIs.'
     },
     {
       label: 'Open Source',
-      title: 'OutPulse Software Engineer',
+      title: 'OutPulse Machine Learning Engineer',
       meta: 'Dec 2024 - Feb 2025',
       detail: 'Trained and deployed a YOLOv11 cone detection model on 962 images and exported lightweight ONNX models for edge inference.'
     },
@@ -106,7 +106,7 @@ export const portfolio = {
       label: 'Current',
       title: 'Open to AI/ML Roles',
       meta: 'Full-Time & Internship Opportunities',
-      detail: 'Actively seeking AI/ML engineering, computer vision, NLP, and applied machine learning roles.'
+      detail: 'Actively seeking AI/ML engineering, recommendation systems, financial NLP, and applied machine learning roles.'
     }
   ],
   skills: [
@@ -177,10 +177,10 @@ export const portfolio = {
       image: unsplashPhoto('photo-1612287230202-1ff1d85d1bdf'),
       fallbackImage: assetPath('project-recommendation.svg'),
       description:
-        'Full-stack hybrid recommendation engine for 50K+ Steam games combining BPR Matrix Factorization, FAISS sentence embeddings, playtime confidence, and MMR diversity re-ranking.',
-      technologies: ['FastAPI', 'Next.js', 'BPR Matrix Factorization', 'FAISS', 'SentenceTransformers', 'PostgreSQL', 'Redis'],
-      features: ['Steam OpenID login', '50.8K game catalog', 'MMR diversity re-ranking', 'Explainable recommendations', '5-fold CV evaluation'],
-      results: 'Achieved 17.32% Hit Rate @ 20 and 12.14% catalog coverage across 1.47M test users under strict leak-free 5-fold cross-validation.',
+        'Full-stack hybrid recommendation engine combining Bayesian Personalized Ranking (BPR), 384-dimensional FAISS embeddings, and MMR diversity reranking on 11M+ interactions across 50K+ games.',
+      technologies: ['Python', 'FastAPI', 'React', 'FAISS', 'Redis', 'PostgreSQL', 'Render', 'Vercel', 'Upstash'],
+      features: ['Steam OpenID authentication', '50K+ game catalog', 'MMR diversity reranking', 'Redis caching & ANN search', '11M+ interactions dataset'],
+      results: 'Optimized inference through ANN search and Redis caching, achieving 17.8% HitRate@20 with sub-50ms response times; deployed full-stack with Neon PostgreSQL and Upstash Redis.',
       githubUrl: 'https://github.com/Manav-Arora4/game-recommendation-system',
       demoUrl: 'https://recommendation-btw-sand.vercel.app/'
     },
@@ -189,10 +189,10 @@ export const portfolio = {
       image: unsplashPhoto('photo-1551288049-bebda4e38f71'),
       fallbackImage: assetPath('project-financial.svg'),
       description:
-        'Enterprise financial NLP & SEC 10-Q filing analysis pipeline engineered for Plattr.io, converting raw EDGAR disclosures into structured financial data, risk signals, and executive summaries.',
-      technologies: ['OpenAI API', 'Anthropic API', 'Flask', 'SEC-API', 'Financial Modeling Prep', 'Python'],
-      features: ['45+ filing pipeline', '14 REST endpoints', 'Chunked LLM processing', 'Financial signal extraction'],
-      results: 'Built for Plattr.io (Proprietary / Under NDA). Processed 45+ 10-Q filings, extracting structured metrics, financial risks, and corporate signals.',
+        'Enterprise financial NLP & SEC 10-Q filing analysis pipeline engineered for Plattr.io, converting raw EDGAR disclosures into structured financial datasets (18 metadata fields, 14-field exports) and risk signals.',
+      technologies: ['Flask', 'OpenAI API', 'Anthropic API', 'SEC-API', 'FMP API', 'Python'],
+      features: ['45+ 10-Q filing pipeline', '14 REST API endpoints', 'Chunked LLM processing', '18 metadata & 14 export fields'],
+      results: 'Engineered multi-stage ETL & LLM pipeline for Plattr.io (Proprietary / Under NDA), extracting structured metrics, company risks, and executive signals.',
       githubUrl: '',
       demoUrl: '',
       disclaimer: 'Enterprise Project for Plattr.io (Proprietary / Under NDA)'
@@ -205,19 +205,19 @@ export const portfolio = {
         'Autonomous computer vision model developed for the International Space Drone Competition (ISDC) with OutPulse, detecting cones in image, webcam, and aerial video streams for real-time edge navigation.',
       technologies: ['YOLOv11', 'OpenCV', 'ONNX', 'Computer Vision', 'Edge AI', 'Python'],
       features: ['ISDC Drone Competition', '962 image dataset', '1,736 annotations', '100 epoch training', 'ONNX edge deployment'],
-      results: 'Trained custom 5.5MB model and exported to ONNX format, achieving robust real-time cone detection on low-power edge hardware for drone navigation.',
+      results: 'Trained custom model over 100 epochs (batch size 16, 320x320 resolution) and exported ONNX format for efficient cross-platform embedded deployment.',
       githubUrl: 'https://github.com/Manav-Arora4/ProjectAiravat',
       demoUrl: ''
     },
     {
-      title: 'Phishing Email Detection',
+      title: 'NLP Based Phishing Detection System',
       image: unsplashPhoto('photo-1526374965328-7f61d4dc18c5'),
       fallbackImage: assetPath('project-nlp.svg'),
       description:
-        'Machine learning and NLP classification pipeline designed to detect phishing and malicious emails using textual features, URL patterns, and HTML structure analysis.',
-      technologies: ['NLP', 'Scikit-learn', 'Naive Bayes', 'REST API', 'Feature Engineering'],
-      features: ['164K+ email dataset', '20K+ token vocabulary', 'Browser extension', 'Feedback-driven retraining'],
-      results: 'Achieved 96.7% accuracy, 0.953 F1-score, about 1.9% false positive rate, and sub-100ms inference time.',
+        'Machine learning and NLP classification pipeline designed to detect phishing and malicious emails on 164K+ emails using textual features, URL patterns, and HTML structure analysis.',
+      technologies: ['Python', 'FastAPI', 'Scikit-learn', 'NLP', 'Naive Bayes', 'Browser Extension'],
+      features: ['164K+ email dataset', '20K+ token vocabulary', 'Browser extension', 'Feedback-driven retraining pipelines'],
+      results: 'Achieved 96.7% accuracy and 0.953 F1-score with low false positive rate (~1.9%) and sub-100ms inference with REST APIs and browser extension.',
       githubUrl: 'https://github.com/Manav-Arora4/PhishingDetector',
       demoUrl: ''
     },
@@ -264,29 +264,27 @@ export const portfolio = {
       company: 'Plattr.io',
       period: 'May 2025 - July 2025',
       highlights: [
-        'Built an end-to-end financial analysis pipeline using SEC-API and LLM-powered analysis across 45+ 10-Q filings.',
-        'Developed 14 REST API endpoints for filings, insider trades, transcripts, and multi-mode financial analysis.',
-        'Integrated OpenAI and Anthropic models with chunked processing for documents up to about 8MB.',
-        'Extracted structured metrics, risks, and key company signals from raw financial filings.'
+        'Built an end-to-end financial analysis pipeline using SEC-API, processing 10-Q filings and converting raw EDGAR data into structured datasets (18 metadata fields, 14-field exports).',
+        'Engineered a multi-stage pipeline (querying, text extraction, chunking, transformation, LLM analysis) and developed 14 REST API endpoints for filings, insider trades, transcripts, and multi-mode analysis.',
+        'Integrated OpenAI and Anthropic models with chunked processing, extracting structured financial insights including metrics, risks, and key company signals.'
       ]
     },
     {
-      role: 'Software Engineer',
-      company: 'OutPulse',
+      role: 'Machine Learning Engineer',
+      company: 'OutPulse (Open-Source)',
       period: 'Dec 2024 - Feb 2025',
       highlights: [
-        'Trained a YOLOv11 cone detection model on 962 images with 1,736 annotations using augmentation and fine-tuning.',
-        'Built OpenCV real-time inference workflows for webcam and video input.',
-        'Deployed a lightweight model around 5.5MB and exported ONNX for cross-platform edge inference.',
-        'Placed 14th out of 40 international teams at the International Space Drone Competition with OutPulse.'
+        'Trained a YOLOv11-based object detection model on 962 images (1,736 annotations) for cone detection, using data augmentation and fine-tuning over 100 epochs (batch size 16, 320×320 resolution).',
+        'Built real-time inference pipelines using OpenCV for webcam and video input, implementing real-time detection workflows from input frames to bounding box outputs.',
+        'Deployed a lightweight model for edge-compatible inference and exported ONNX format for cross-platform deployment, enabling efficient integration into embedded systems.'
       ]
     }
   ],
   education: {
     school: 'Atlas SkillTech University',
     degree: 'Bachelor of Technology',
-    major: 'Computer Science with Machine Learning and AI',
-    gpa: 'Graduation: May 2027'
+    major: 'Computer Science, Artificial Intelligence & Machine Learning',
+    gpa: 'Graduation: June 2027'
   },
   certifications: [
     'Supervised Machine Learning: Regression and Classification - Stanford Online',

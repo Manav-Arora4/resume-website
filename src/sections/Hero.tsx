@@ -1,25 +1,72 @@
-import { motion } from 'framer-motion';
-import { FaArrowDown, FaDownload, FaGithub, FaLinkedin, FaRocket } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaArrowDown, FaCheck, FaCopy, FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ButtonLink } from '../components/ButtonLink';
 import { portfolio } from '../data/portfolio';
 
+const dynamicSpecialties = [
+  '⚡ Financial NLP & LLM Pipelines',
+  '🎯 Real-Time Edge Vision & YOLOv11',
+  '🔥 High-Throughput Recommendation Engines',
+  '🚀 Production-Grade AI Applications'
+];
+
 export function Hero() {
+  const [specialtyIndex, setSpecialtyIndex] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSpecialtyIndex((prev) => (prev + 1) % dynamicSpecialties.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(portfolio.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
+
   return (
     <section id="home" className="hero">
+      {/* Animated Ambient Glow & Particle Orbs */}
       <div className="hero-glow-1" aria-hidden="true" />
       <div className="hero-glow-2" aria-hidden="true" />
-      
+      <div className="hero-ambient-particles" aria-hidden="true">
+        <span className="particle p1" />
+        <span className="particle p2" />
+        <span className="particle p3" />
+        <span className="particle p4" />
+      </div>
+
       <div className="hero-content">
-        <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="status-badge"
-        >
-          <span className="pulse-dot" />
-          <span>Open to AI/ML Opportunities</span>
-        </motion.div>
-        
+        {/* Status Pill & Dynamic Specialty Cycling */}
+        <div className="hero-top-badges">
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="status-badge"
+          >
+            <span className="pulse-dot" />
+            <span>Open to AI/ML Opportunities</span>
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={specialtyIndex}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="specialty-rotator-badge"
+            >
+              <span>{dynamicSpecialties[specialtyIndex]}</span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,6 +114,15 @@ export function Hero() {
           <ButtonLink href={portfolio.links.linkedin} icon={FaLinkedin} variant="ghost">
             LinkedIn
           </ButtonLink>
+          <button
+            type="button"
+            onClick={handleCopyEmail}
+            className="button-link ghost hero-copy-email-btn"
+            title="Copy email to clipboard"
+          >
+            {copied ? <FaCheck className="text-emerald-400" /> : <FaCopy />}
+            <span>{copied ? 'Copied Email!' : 'Copy Email'}</span>
+          </button>
         </motion.div>
       </div>
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { ScrollProgress } from './components/ScrollProgress';
 import { About } from './sections/About';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
@@ -16,6 +17,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

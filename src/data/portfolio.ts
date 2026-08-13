@@ -174,7 +174,7 @@ export const portfolio = {
   projects: [
     {
       title: 'Steam Game Recommendation System',
-      image: unsplashPhoto('photo-1612287230202-1ff1d85d1bdf'),
+      image: assetPath('project-game-recommendation.png'),
       fallbackImage: assetPath('project-recommendation.svg'),
       description:
         'Full-stack hybrid recommendation engine combining Bayesian Personalized Ranking (BPR), 384-dimensional FAISS embeddings, and MMR diversity reranking on 11M+ interactions across 50K+ games.',
@@ -211,7 +211,7 @@ export const portfolio = {
     },
     {
       title: 'NLP Based Phishing Detection System',
-      image: unsplashPhoto('photo-1526374965328-7f61d4dc18c5'),
+      image: assetPath('project-phishing-detection.png'),
       fallbackImage: assetPath('project-nlp.svg'),
       description:
         'Machine learning and NLP classification pipeline designed to detect phishing and malicious emails on 164K+ emails using textual features, URL patterns, and HTML structure analysis.',
@@ -222,20 +222,8 @@ export const portfolio = {
       demoUrl: ''
     },
     {
-      title: 'Anime Recommendation System',
-      image: unsplashPhoto('photo-1578632767115-351597cf2477'),
-      fallbackImage: assetPath('project-recommendation.svg'),
-      description:
-        'Matrix factorization and collaborative filtering recommender system trained on MyAnimeList data with custom latent factor representations.',
-      technologies: ['Recommendation Engine', 'Collaborative Filtering', 'NumPy', 'Matrix Factorization'],
-      features: ['4.7K users', '500 items', '5K interactions', 'Serialized model inference'],
-      results: 'Engineered 46-dimensional latent factors via gradient descent, achieving RMSE 0.1368 and MAE 0.1227 across 4.7K users and 500 items.',
-      githubUrl: 'https://github.com/Manav-Arora4/CollborativeFilteringRecommender',
-      demoUrl: ''
-    },
-    {
       title: 'FPS Prediction',
-      image: unsplashPhoto('photo-1511512578047-dfb367046420'),
+      image: assetPath('project-fps-prediction.png'),
       fallbackImage: assetPath('project-regression.svg'),
       description:
         'Supervised machine learning regression model that predicts gaming frames per second (FPS) across diverse hardware configurations, resolution benchmarks, and graphics settings.',
@@ -243,18 +231,6 @@ export const portfolio = {
       features: ['Data cleaning', 'Exploratory analysis', 'Model training', 'Error analysis'],
       results: 'Trained regression models with data cleaning, feature encoding, and error analysis to provide accurate frame rate estimations.',
       githubUrl: 'https://github.com/Manav-Arora4/fpsPrediction',
-      demoUrl: ''
-    },
-    {
-      title: 'House Price Prediction',
-      image: unsplashPhoto('photo-1560518883-ce09059eeffa'),
-      fallbackImage: assetPath('project-housing.svg'),
-      description:
-        'End-to-end regression model for predicting residential real estate prices through rigorous data cleaning, multivariable feature engineering, and statistical modeling.',
-      technologies: ['Regression', 'Feature Engineering', 'Data Visualization', 'Scikit-learn'],
-      features: ['Missing value handling', 'Feature selection', 'Model evaluation', 'Visualization dashboard'],
-      results: 'Analyzed key price drivers, handled missing values and outliers, and produced visual feature importance insights.',
-      githubUrl: 'https://github.com/Manav-Arora4/housePricePrediction/tree/main',
       demoUrl: ''
     }
   ] satisfies Project[],

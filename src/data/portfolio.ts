@@ -63,7 +63,7 @@ export const portfolio = {
   name: 'Manav Arora',
   title: 'AI & Machine Learning Student',
   intro:
-    'AI/ML student focused on building intelligent systems in financial NLP, recommendation engines, and real-time inference. Experienced in building AI applications using LLMs, APIs, and modern backend technologies.',
+    '4th-year CS/AI student specializing in financial NLP and LLM-powered systems. Built production-grade pipelines processing SEC filings and real-time market data during a hands-on internship, using OpenAI, Anthropic, and RAG architectures.',
   resumeUrl: assetPath('Manav_Arora_Resume_Latest.pdf'),
   resumeLinks: [
     { label: 'Latest Resume', href: assetPath('Manav_Arora_Resume_Latest.pdf') },
@@ -79,8 +79,8 @@ export const portfolio = {
     linkedin: 'https://www.linkedin.com/in/manav-arora4'
   },
   about: [
-    'AI & ML student at Atlas SkillTech University, Mumbai (Graduating in June 2027).',
-    'Experienced in building production-style AI systems combining LLMs, financial NLP, OpenCV, YOLOv11, and edge deployment.',
+    '4th-year CS/AI student at Atlas SkillTech University, Mumbai (Graduation: June 2027).',
+    'Built production-grade pipelines processing SEC filings and real-time market data during a hands-on internship, using OpenAI, Anthropic, and RAG architectures.',
     'Looking for AI/ML engineering, recommendation systems, and applied AI opportunities.'
   ],
   timeline: [

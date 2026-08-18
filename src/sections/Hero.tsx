@@ -148,7 +148,7 @@ export function Hero() {
             </div>
             <div className="hero-stat-item">
               <span>Shipped</span>
-              <strong>{portfolio.projects.length} Production Systems</strong>
+              <strong>3 Shipped AI Systems</strong>
             </div>
             <div className="hero-stat-item">
               <span>Status</span>

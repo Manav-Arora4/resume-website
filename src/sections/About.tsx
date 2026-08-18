@@ -19,7 +19,7 @@ export function About() {
             <div className="code-line">
               <span className="line-num">1</span>
               <span className="code-content">
-                <span className="code-keyword">class</span> <span className="text-purple-300 font-bold">AIMLEngineer</span>:
+                <span className="code-keyword">class</span> <span className="text-purple-300 font-bold">AIMLStudent</span>:
               </span>
             </div>
             <div className="code-line">
@@ -49,7 +49,7 @@ export function About() {
             <div className="code-line">
               <span className="line-num">6</span>
               <span className="code-content pl-8">
-                self.status = <span className="code-string">"Graduating May 2027 | Open for AI/ML Roles"</span>
+                self.status = <span className="code-string">"Graduation: June 2027 | Open for AI/ML Roles"</span>
               </span>
             </div>
             <div className="code-line">

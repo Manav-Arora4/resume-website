@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">House price prediction screenshot placeholder</title>
+  <desc id="desc">Housing regression placeholder with house icon and feature charts.</desc>
+  <rect width="1200" height="675" fill="#07111f"/>
+  <rect x="82" y="72" width="1036" height="531" rx="24" fill="#0d192b" stroke="#31536a"/>
+  <path d="M180 330 L390 170 L600 330 V520 H238 V330Z" fill="#12233a" stroke="#38bdf8" stroke-width="12"/>
+  <rect x="354" y="402" width="94" height="118" fill="#0d192b" stroke="#2dd4bf" stroke-width="8"/>
+  <rect x="258" y="360" width="72" height="72" fill="#0d192b" stroke="#fbbf24" stroke-width="8"/>
+  <rect x="696" y="150" width="320" height="90" rx="16" fill="#12233a"/>
+  <rect x="696" y="286" width="320" height="90" rx="16" fill="#12233a"/>
+  <rect x="696" y="422" width="320" height="90" rx="16" fill="#12233a"/>
+  <path d="M736 196 H936 M736 332 H974 M736 468 H900" stroke="#94a3b8" stroke-width="14" stroke-linecap="round"/>
+</svg>

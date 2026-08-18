@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">FPS prediction screenshot placeholder</title>
+  <desc id="desc">Regression dashboard placeholder with scatter plot and prediction metrics.</desc>
+  <rect width="1200" height="675" fill="#07111f"/>
+  <rect x="78" y="72" width="1044" height="531" rx="24" fill="#0d192b" stroke="#31536a"/>
+  <rect x="126" y="128" width="650" height="420" rx="18" fill="#12233a"/>
+  <path d="M178 492 H720 M178 492 V168" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M206 458 C310 418 385 388 474 326 C570 258 630 232 720 196" fill="none" stroke="#38bdf8" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#2dd4bf">
+    <circle cx="245" cy="432" r="12"/><circle cx="330" cy="398" r="12"/><circle cx="410" cy="352" r="12"/><circle cx="500" cy="318" r="12"/><circle cx="612" cy="246" r="12"/><circle cx="685" cy="214" r="12"/>
+  </g>
+  <rect x="826" y="128" width="248" height="124" rx="18" fill="#12233a"/>
+  <rect x="826" y="284" width="248" height="124" rx="18" fill="#12233a"/>
+  <rect x="826" y="440" width="248" height="108" rx="18" fill="#12233a"/>
+  <path d="M866 182 H1008 M866 338 H1018 M866 494 H978" stroke="#fbbf24" stroke-width="16" stroke-linecap="round"/>
+</svg>

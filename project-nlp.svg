@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Phishing email detection screenshot placeholder</title>
+  <desc id="desc">NLP classifier placeholder with email rows and risk score panel.</desc>
+  <rect width="1200" height="675" fill="#07111f"/>
+  <rect x="76" y="72" width="1048" height="531" rx="24" fill="#0d192b" stroke="#31536a"/>
+  <rect x="124" y="126" width="620" height="86" rx="14" fill="#12233a"/>
+  <rect x="124" y="238" width="620" height="86" rx="14" fill="#12233a"/>
+  <rect x="124" y="350" width="620" height="86" rx="14" fill="#12233a"/>
+  <rect x="124" y="462" width="620" height="86" rx="14" fill="#12233a"/>
+  <path d="M172 170 H450 M172 282 H628 M172 394 H512 M172 506 H600" stroke="#94a3b8" stroke-width="14" stroke-linecap="round"/>
+  <rect x="796" y="126" width="282" height="422" rx="18" fill="#12233a"/>
+  <circle cx="937" cy="286" r="82" fill="none" stroke="#ef4444" stroke-width="28"/>
+  <path d="M937 204 A82 82 0 0 1 1019 286" fill="none" stroke="#fbbf24" stroke-width="28"/>
+  <path d="M860 442 H1012 M860 488 H980" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+</svg>

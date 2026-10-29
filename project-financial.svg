@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Financial statement analyzer screenshot placeholder</title>
+  <desc id="desc">Dark dashboard placeholder with charts and financial document panels.</desc>
+  <rect width="1200" height="675" fill="#07111f"/>
+  <rect x="74" y="72" width="1052" height="531" rx="24" fill="#0d192b" stroke="#31536a"/>
+  <rect x="118" y="122" width="354" height="405" rx="18" fill="#12233a"/>
+  <rect x="522" y="122" width="560" height="168" rx="18" fill="#12233a"/>
+  <rect x="522" y="330" width="258" height="197" rx="18" fill="#12233a"/>
+  <rect x="824" y="330" width="258" height="197" rx="18" fill="#12233a"/>
+  <path d="M154 455 L214 390 L276 416 L342 305 L432 258" fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M565 244 H790 M565 201 H982 M565 158 H915" stroke="#94a3b8" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="618" cy="430" r="58" fill="none" stroke="#2dd4bf" stroke-width="24"/>
+  <path d="M618 372 A58 58 0 0 1 676 430" fill="none" stroke="#fbbf24" stroke-width="24"/>
+  <path d="M874 472 H1030 M874 430 H1002 M874 388 H958" stroke="#94a3b8" stroke-width="13" stroke-linecap="round"/>
+</svg>

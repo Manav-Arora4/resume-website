@@ -3,19 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manav Arora — AI &amp; Machine Learning Engineer</title>
     <meta
       name="description"
-      content="Manav Arora is an AI and Machine Learning Student specializing in financial NLP, recommendation engines, and real-time inference."
+      content="Manav Arora builds production machine learning systems: financial NLP pipelines, recommendation engines and real-time computer vision."
     />
-    <meta name="theme-color" content="#08111f" />
-    <meta property="og:title" content="Manav Arora | AI & Machine Learning Student" />
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://manavarora.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://manavarora.dev/" />
+    <meta property="og:title" content="Manav Arora — AI & Machine Learning Engineer" />
     <meta
       property="og:description"
-      content="Portfolio of Manav Arora, AI/ML student building production-grade NLP, recommendation, and computer vision systems."
+      content="Production ML systems: financial NLP pipelines, recommendation engines and real-time computer vision."
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.svg" />
-    <title>Manav Arora | AI & ML Student</title>
+    <meta property="og:image" content="https://manavarora.dev/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@400&display=swap"
+    />
+
+    <script>
+      // Apply a saved theme before first paint to avoid a flash of the wrong colours.
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

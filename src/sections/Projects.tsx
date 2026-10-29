@@ -1,183 +1,81 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub, FaLock } from 'react-icons/fa';
+import { FiArrowUpRight, FiGithub, FiLock } from 'react-icons/fi';
 import { Section } from '../components/Section';
-import { portfolio } from '../data/portfolio';
+import { portfolio, type Project } from '../data/portfolio';
 
-export function Projects() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const activeThumbRef = useRef<HTMLButtonElement>(null);
-
-  const isFirstMount = useRef(true);
-
-  const projects = portfolio.projects;
-  const activeProject = projects[activeIndex] || projects[0];
-
-  useEffect(() => {
-    if (isFirstMount.current) {
-      isFirstMount.current = false;
-      return;
-    }
-    if (activeThumbRef.current && scrollRef.current) {
-      const container = scrollRef.current;
-      const element = activeThumbRef.current;
-      const elementLeft = element.offsetLeft;
-      const elementWidth = element.offsetWidth;
-      const containerWidth = container.offsetWidth;
-      container.scrollTo({
-        left: elementLeft - containerWidth / 2 + elementWidth / 2,
-        behavior: 'smooth'
-      });
-    }
-  }, [activeIndex]);
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
-  };
+function ProjectLinks({ project }: { project: Project }) {
+  if (project.confidential) {
+    return (
+      <p className="project-note">
+        <FiLock aria-hidden="true" />
+        Code is proprietary (under NDA)
+      </p>
+    );
+  }
 
   return (
-    <Section
-      id="projects"
-      eyebrow="Projects"
-      title="Featured AI & ML Projects"
-      intro="Check out some of my machine learning & AI projects, meticulously crafted with focus and dedication."
-    >
-      <div className="project-showcase-container">
-        {/* Left Column: Thumbnails Selector + Active Project Details */}
-        <div className="project-showcase-left">
-          {/* Project Thumbnails Row with Controls */}
-          <div className="project-slider-wrapper">
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="project-slider-arrow left"
-              aria-label="Previous project"
-            >
-              <FaChevronLeft />
-            </button>
+    <div className="project-links">
+      {project.demoUrl ? (
+        <a className="button button-primary" href={project.demoUrl} target="_blank" rel="noreferrer">
+          Live demo <FiArrowUpRight aria-hidden="true" />
+        </a>
+      ) : null}
+      {project.githubUrl ? (
+        <a className="button" href={project.githubUrl} target="_blank" rel="noreferrer">
+          <FiGithub aria-hidden="true" /> Source
+        </a>
+      ) : null}
+    </div>
+  );
+}
 
-            <div ref={scrollRef} className="project-thumbs-row" aria-label="Select a project">
-              {projects.map((project, idx) => {
-                const isActive = idx === activeIndex;
-                return (
-                  <button
-                    key={project.title}
-                    ref={isActive ? activeThumbRef : null}
-                    type="button"
-                    onClick={() => setActiveIndex(idx)}
-                    className={`project-thumb-btn ${isActive ? 'is-active' : ''}`}
-                    aria-label={`View ${project.title}`}
-                  >
-                    <img src={project.image} alt={project.title} />
-                    <span>{project.title}</span>
-                  </button>
-                );
-              })}
+export function Projects() {
+  return (
+    <Section id="projects" label="Selected work" title="Projects">
+      <div className="project-list">
+        {portfolio.projects.map((project, index) => (
+          <article key={project.title} className={`project reveal${project.image ? ' has-image' : ''}`}>
+            <div className="project-text">
+              <p className="project-index">
+                {String(index + 1).padStart(2, '0')}
+                {project.date ? <span>{project.date}</span> : null}
+                {project.context ? <span>{project.context}</span> : null}
+              </p>
+              <h3>{project.title}</h3>
+              <p className="project-summary">{project.summary}</p>
+
+              {project.metrics.length > 0 ? (
+                <dl className="metrics">
+                  {project.metrics.map((metric) => (
+                    <div key={metric.label}>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+
+              <ul className="project-details">
+                {project.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+
+              <ul className="tags" aria-label="Tech stack">
+                {project.stack.map((tech) => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
+
+              <ProjectLinks project={project} />
             </div>
 
-            <button
-              type="button"
-              onClick={handleNext}
-              className="project-slider-arrow right"
-              aria-label="Next project"
-            >
-              <FaChevronRight />
-            </button>
-          </div>
-
-          {/* Connection Line Graphic */}
-          <div className="project-connect-line" aria-hidden="true">
-            <svg viewBox="0 0 300 24" fill="none" preserveAspectRatio="none">
-              <path
-                d="M20,2 L60,20 L290,20"
-                stroke="#8b5cf6"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-                opacity="0.5"
-              />
-            </svg>
-          </div>
-
-          {/* Active Project Details */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject.title}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-              className="active-project-details"
-            >
-              <h3>{activeProject.title}</h3>
-              <p>{activeProject.description}</p>
-
-              <div className="tag-row" aria-label={`${activeProject.title} technologies`}>
-                {activeProject.technologies.map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
-
-              <div className="result">{activeProject.results}</div>
-
-              <div className="project-actions">
-                {activeProject.disclaimer ? (
-                  <div className="project-disclaimer-pill" title="Proprietary code under NDA">
-                    <FaLock aria-hidden="true" />
-                    <span>{activeProject.disclaimer}</span>
-                  </div>
-                ) : (
-                  activeProject.githubUrl && (
-                    <a
-                      href={activeProject.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="button-link ghost"
-                    >
-                      <FaGithub aria-hidden="true" />
-                      GitHub Repo
-                    </a>
-                  )
-                )}
-                {activeProject.demoUrl && activeProject.demoUrl !== '#' && activeProject.demoUrl !== '' && (
-                  <a
-                    href={activeProject.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="button-link primary"
-                  >
-                    <FaExternalLinkAlt aria-hidden="true" />
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Right Column: Large Interactive Showcase Frame */}
-        <div className="project-showcase-right">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject.title}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.35 }}
-              className="project-showcase-frame"
-            >
-              <img
-                src={activeProject.image}
-                alt={`${activeProject.title} preview`}
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            {project.image ? (
+              <figure className="project-figure">
+                <img src={project.image.src} alt={project.image.alt} loading="lazy" decoding="async" />
+              </figure>
+            ) : null}
+          </article>
+        ))}
       </div>
     </Section>
   );

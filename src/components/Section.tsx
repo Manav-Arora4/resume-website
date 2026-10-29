@@ -1,30 +1,22 @@
-import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type SectionProps = {
   id: string;
-  eyebrow?: string;
+  label: string;
   title: string;
-  intro?: string;
   children: ReactNode;
 };
 
-export function Section({ id, eyebrow, title, intro, children }: SectionProps) {
+export function Section({ id, label, title, children }: SectionProps) {
   return (
-    <motion.section
-      id={id}
-      className="section-shell scroll-mt-24"
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.16 }}
-      transition={{ duration: 0.55, ease: 'easeOut' }}
-    >
-      <div className="section-heading">
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h2>{title}</h2>
-        {intro ? <p>{intro}</p> : null}
+    <section id={id} className="section" aria-labelledby={`${id}-title`}>
+      <div className="container section-grid">
+        <header className="section-header reveal">
+          <p className="section-label">{label}</p>
+          <h2 id={`${id}-title`}>{title}</h2>
+        </header>
+        <div className="section-body">{children}</div>
       </div>
-      {children}
-    </motion.section>
+    </section>
   );
 }

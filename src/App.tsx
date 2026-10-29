@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import { ScrollProgress } from './components/ScrollProgress';
-import { About } from './sections/About';
+import { useReveal } from './components/useReveal';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
+import { Experience } from './sections/Experience';
 import { Footer } from './sections/Footer';
 import { Hero } from './sections/Hero';
 import { Navbar } from './sections/Navbar';
@@ -10,20 +9,19 @@ import { Projects } from './sections/Projects';
 import { Skills } from './sections/Skills';
 
 export default function App() {
-  useEffect(() => {
-    // Ensure the page always starts at the top
-    window.scrollTo(0, 0);
-  }, []);
+  useReveal();
 
   return (
     <>
-      <ScrollProgress />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
-        <About />
-        <Skills />
         <Projects />
+        <Experience />
+        <Skills />
         <Certifications />
         <Contact />
       </main>
@@ -31,4 +29,3 @@ export default function App() {
     </>
   );
 }
-

@@ -1,41 +1,46 @@
-import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
-import { GlassCard } from '../components/GlassCard';
 import { Section } from '../components/Section';
 import { portfolio } from '../data/portfolio';
 
 export function Experience() {
+  const { education } = portfolio;
+
   return (
-    <Section id="experience" eyebrow="Experience" title="Practical AI engineering exposure">
-      <div className="experience-grid">
+    <Section id="experience" label="Experience" title="Where I’ve worked">
+      <ol className="timeline">
         {portfolio.experience.map((item) => (
-          <GlassCard key={`${item.company}-${item.role}`} className="experience-card">
-            <FaBriefcase aria-hidden="true" />
+          <li key={`${item.company}-${item.role}`} className="timeline-item reveal">
+            <p className="timeline-period">
+              {item.period}
+              <span>{item.location}</span>
+            </p>
             <div>
-              <p>{item.period}</p>
               <h3>
-                {item.role}, {item.company}
+                {item.role} <span>· {item.company}</span>
               </h3>
               <ul>
                 {item.highlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>
                 ))}
               </ul>
+              <ul className="tags" aria-label="Tech stack">
+                {item.stack.map((tech) => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
             </div>
-          </GlassCard>
+          </li>
         ))}
-        <GlassCard className="experience-card">
-          <FaGraduationCap aria-hidden="true" />
+        <li className="timeline-item reveal">
+          <p className="timeline-period">{education.period}</p>
           <div>
-            <p>Education</p>
-            <h3>{portfolio.education.school}</h3>
-            <ul>
-              <li>{portfolio.education.degree}</li>
-              <li>{portfolio.education.major}</li>
-              <li>{portfolio.education.gpa}</li>
-            </ul>
+            <h3>
+              Education <span>· {education.school}</span>
+            </h3>
+            <p>{education.degree}</p>
+            <p>{education.grade}</p>
           </div>
-        </GlassCard>
-      </div>
+        </li>
+      </ol>
     </Section>
   );
 }

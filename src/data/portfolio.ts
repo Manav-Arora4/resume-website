@@ -1,295 +1,224 @@
-import {
-  FaCss3Alt,
-  FaEnvelope,
-  FaFlask,
-  FaGithub,
-  FaHtml5,
-  FaJs,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaPython,
-  FaReact
-} from 'react-icons/fa';
-import {
-  SiDocker,
-  SiFastapi,
-  SiGit,
-  SiGooglecolab,
-  SiJupyter,
-  SiMongodb,
-  SiMysql,
-  SiNumpy,
-  SiOpencv,
-  SiPandas,
-  SiPostgresql,
-  SiPytorch,
-  SiRedis,
-  SiRender,
-  SiScikitlearn,
-  SiSharp,
-  SiTailwindcss,
-  SiTensorflow,
-  SiVercel
-} from 'react-icons/si';
-import { TbBrandVscode } from 'react-icons/tb';
-import type { IconType } from 'react-icons';
-
 const assetPath = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
-const unsplashPhoto = (photoId: string) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1200&q=80`;
 
-export type Skill = {
-  name: string;
-  level: number;
-  icon?: IconType;
+export type Metric = {
+  value: string;
+  label: string;
 };
 
 export type Project = {
   title: string;
-  image: string;
-  fallbackImage: string;
-  description: string;
-  technologies: string[];
-  features: string[];
-  results: string;
-  githubUrl: string;
-  demoUrl: string;
-  disclaimer?: string;
+  summary: string;
+  context?: string;
+  date?: string;
+  image?: { src: string; alt: string };
+  metrics: Metric[];
+  details: string[];
+  stack: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  confidential?: boolean;
 };
 
-// Update this one file to refresh copy, links, projects, skills, and stats across the site.
+export type Role = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  stack: string[];
+  highlights: string[];
+};
+
+export type SkillGroup = {
+  category: string;
+  items: string[];
+};
+
+export type Certificate = {
+  title: string;
+  issuer: string;
+  date: string;
+  image: string;
+  verifyUrl: string;
+};
+
+// Update this one file to refresh copy, links, projects, skills, and certificates across the site.
 export const portfolio = {
   name: 'Manav Arora',
-  title: 'AI & Machine Learning Student',
+  title: 'AI & Machine Learning Engineer',
+  location: 'Navi Mumbai, India',
+  headline: 'I build machine learning systems that make it to production.',
   intro:
-    '4th-year CS/AI student specializing in financial NLP and LLM-powered systems. Built production-grade pipelines processing SEC filings and real-time market data during a hands-on internship, using OpenAI, Anthropic, and RAG architectures.',
+    'Final-year B.Tech student in Computer Science (AI & ML), currently building an automated short-form video pipeline as an AI Agent Intern at Qenix Labs. Before that I built an LLM pipeline that turns SEC filings into structured financial data at Plattr.io, and a YOLOv11 detector for an autonomous drone team. I work across the stack: model training, backend APIs and deployment.',
+  availability: 'Open to full-time roles in applied ML, LLM systems and recommender systems from June 2027.',
   resumeUrl: assetPath('Manav_Arora_Resume_Latest.pdf'),
-  resumeLinks: [
-    { label: 'Latest Resume', href: assetPath('Manav_Arora_Resume_Latest.pdf') },
-    { label: 'ATS Resume', href: assetPath('ManavArora_Resume.pdf') },
-    { label: 'Gamified Resume Design', href: assetPath('Gamified_Resume_Design.zip') }
-  ],
   email: 'manav-manu-arora@outlook.com',
-  phone: '+91 8928986507',
-  location: 'Navi Mumbai, Maharashtra',
-  githubUsername: 'Manav-Arora4',
+  phone: '+91 89289 86507',
+  phoneHref: 'tel:+918928986507',
   links: {
     github: 'https://github.com/Manav-Arora4',
     linkedin: 'https://www.linkedin.com/in/manav-arora4'
   },
-  about: [
-    '4th-year CS/AI student at Atlas SkillTech University, Mumbai (Graduation: June 2027).',
-    'Built production-grade pipelines processing SEC filings and real-time market data during a hands-on internship, using OpenAI, Anthropic, and RAG architectures.',
-    'Looking for AI/ML engineering, recommendation systems, and applied AI opportunities.'
-  ],
-  timeline: [
-    {
-      label: 'University',
-      title: 'B.Tech in Computer Science, Artificial Intelligence & Machine Learning',
-      meta: 'Atlas SkillTech University (Graduation: June 2027)',
-      detail: 'Mumbai-based undergraduate program focused on AI/ML, software systems, and applied machine learning projects.'
-    },
-    {
-      label: 'Internship',
-      title: 'Plattr.io AI Intern',
-      meta: 'May 2025 - July 2025',
-      detail: 'Built an end-to-end financial analysis pipeline processing 10-Q filings with SEC-API, OpenAI, Anthropic, and 14 Flask REST APIs.'
-    },
-    {
-      label: 'Open Source',
-      title: 'OutPulse Machine Learning Engineer',
-      meta: 'Dec 2024 - Feb 2025',
-      detail: 'Trained and deployed a YOLOv11 cone detection model on 962 images and exported lightweight ONNX models for edge inference.'
-    },
-    {
-      label: 'Current',
-      title: 'Open to AI/ML Roles',
-      meta: 'Full-Time & Internship Opportunities',
-      detail: 'Actively seeking AI/ML engineering, recommendation systems, financial NLP, and applied machine learning roles.'
-    }
-  ],
-  skills: [
-    {
-      category: 'Languages',
-      items: [
-        { name: 'Python', level: 92, icon: FaPython },
-        { name: 'SQL', level: 82 },
-        { name: 'C#', level: 72, icon: SiSharp },
-        { name: 'JavaScript', level: 78, icon: FaJs }
-      ]
-    },
-    {
-      category: 'Machine Learning',
-      items: [
-        { name: 'Scikit-learn', level: 86, icon: SiScikitlearn },
-        { name: 'NLP', level: 84 },
-        { name: 'TensorFlow', level: 76, icon: SiTensorflow },
-        { name: 'PyTorch', level: 78, icon: SiPytorch },
-        { name: 'Recommendation Systems', level: 88 },
-        { name: 'FAISS', level: 80 },
-        { name: 'Computer Vision', level: 82, icon: SiOpencv },
-        { name: 'Pandas', level: 88, icon: SiPandas },
-        { name: 'NumPy', level: 86, icon: SiNumpy }
-      ]
-    },
-    {
-      category: 'Frameworks',
-      items: [
-        { name: 'FastAPI', level: 86, icon: SiFastapi },
-        { name: 'Flask', level: 84, icon: FaFlask },
-        { name: 'React', level: 78, icon: FaReact }
-      ]
-    },
-    {
-      category: 'Databases',
-      items: [
-        { name: 'PostgreSQL', level: 84, icon: SiPostgresql },
-        { name: 'Redis', level: 80, icon: SiRedis },
-        { name: 'MySQL', level: 78, icon: SiMysql },
-        { name: 'MongoDB', level: 72, icon: SiMongodb }
-      ]
-    },
-    {
-      category: 'Cloud & Hosting',
-      items: [
-        { name: 'Vercel', level: 85, icon: SiVercel },
-        { name: 'Render', level: 80, icon: SiRender },
-        { name: 'Neon', level: 80 },
-        { name: 'Upstash', level: 78 }
-      ]
-    },
-    {
-      category: 'Tools',
-      items: [
-        { name: 'Git', level: 82, icon: SiGit },
-        { name: 'Docker', level: 78, icon: SiDocker },
-        { name: 'Power BI', level: 74 },
-        { name: 'GitHub', level: 84, icon: FaGithub },
-        { name: 'VS Code', level: 88, icon: TbBrandVscode },
-        { name: 'Jupyter', level: 86, icon: SiJupyter }
-      ]
-    }
-  ],
-  projects: [
-    {
-      title: 'Steam Game Recommendation System',
-      image: assetPath('project-game-recommendation.png'),
-      fallbackImage: assetPath('project-recommendation.svg'),
-      description:
-        'Full-stack hybrid recommendation engine combining Bayesian Personalized Ranking (BPR), 384-dimensional FAISS embeddings, and MMR diversity reranking on 11M+ interactions across 50K+ games.',
-      technologies: ['Python', 'FastAPI', 'React', 'FAISS', 'Redis', 'PostgreSQL', 'Render', 'Vercel', 'Upstash'],
-      features: ['Steam OpenID authentication', '50K+ game catalog', 'MMR diversity reranking', 'Redis caching & ANN search', '11M+ interactions dataset'],
-      results: 'Optimized inference through ANN search and Redis caching, achieving 17.8% HitRate@20 with sub-50ms response times; deployed full-stack with Neon PostgreSQL and Upstash Redis.',
-      githubUrl: 'https://github.com/Manav-Arora4/game-recommendation-system',
-      demoUrl: 'https://recommendation-btw-sand.vercel.app/'
-    },
-    {
-      title: 'Financial Statement Analyzer',
-      image: unsplashPhoto('photo-1551288049-bebda4e38f71'),
-      fallbackImage: assetPath('project-financial.svg'),
-      description:
-        'Enterprise financial NLP & SEC 10-Q filing analysis pipeline engineered for Plattr.io, converting raw EDGAR disclosures into structured financial datasets (18 metadata fields, 14-field exports) and risk signals.',
-      technologies: ['Flask', 'OpenAI API', 'Anthropic API', 'SEC-API', 'FMP API', 'Python'],
-      features: ['45+ 10-Q filing pipeline', '14 REST API endpoints', 'Chunked LLM processing', '18 metadata & 14 export fields'],
-      results: 'Engineered multi-stage ETL & LLM pipeline for Plattr.io (Proprietary / Under NDA), extracting structured metrics, company risks, and executive signals.',
-      githubUrl: '',
-      demoUrl: '',
-      disclaimer: 'Enterprise Project for Plattr.io (Proprietary / Under NDA)'
-    },
-    {
-      title: 'Project Airavat - YOLOv11 Cone Detection',
-      image: assetPath('cone-detection.jpg'),
-      fallbackImage: assetPath('project-vision.svg'),
-      description:
-        'Autonomous computer vision model developed for the International Space Drone Competition (ISDC) with OutPulse, detecting cones in image, webcam, and aerial video streams for real-time edge navigation.',
-      technologies: ['YOLOv11', 'OpenCV', 'ONNX', 'Computer Vision', 'Edge AI', 'Python'],
-      features: ['ISDC Drone Competition', '962 image dataset', '1,736 annotations', '100 epoch training', 'ONNX edge deployment'],
-      results: 'Trained custom model over 100 epochs (batch size 16, 320x320 resolution) and exported ONNX format for efficient cross-platform embedded deployment.',
-      githubUrl: 'https://github.com/Manav-Arora4/ProjectAiravat',
-      demoUrl: ''
-    },
-    {
-      title: 'NLP Based Phishing Detection System',
-      image: assetPath('project-phishing-detection.png'),
-      fallbackImage: assetPath('project-nlp.svg'),
-      description:
-        'Machine learning and NLP classification pipeline designed to detect phishing and malicious emails on 164K+ emails using textual features, URL patterns, and HTML structure analysis.',
-      technologies: ['Python', 'FastAPI', 'Scikit-learn', 'NLP', 'Naive Bayes', 'Browser Extension'],
-      features: ['164K+ email dataset', '20K+ token vocabulary', 'Browser extension', 'Feedback-driven retraining pipelines'],
-      results: 'Achieved 96.7% accuracy and 0.953 F1-score with low false positive rate (~1.9%) and sub-100ms inference with REST APIs and browser extension.',
-      githubUrl: 'https://github.com/Manav-Arora4/PhishingDetector',
-      demoUrl: ''
-    },
-    {
-      title: 'FPS Prediction',
-      image: assetPath('project-fps-prediction.png'),
-      fallbackImage: assetPath('project-regression.svg'),
-      description:
-        'Supervised machine learning regression model that predicts gaming frames per second (FPS) across diverse hardware configurations, resolution benchmarks, and graphics settings.',
-      technologies: ['Regression', 'Machine Learning', 'Data Analysis', 'Scikit-learn'],
-      features: ['Data cleaning', 'Exploratory analysis', 'Model training', 'Error analysis'],
-      results: 'Trained regression models with data cleaning, feature encoding, and error analysis to provide accurate frame rate estimations.',
-      githubUrl: 'https://github.com/Manav-Arora4/fpsPrediction',
-      demoUrl: ''
-    }
-  ] satisfies Project[],
   experience: [
+    {
+      role: 'AI Agent Intern',
+      company: 'Qenix Labs',
+      period: 'Oct 2026 – present',
+      location: 'Mumbai',
+      stack: ['FastAPI', 'Redis', 'PostgreSQL', 'Next.js', 'FFmpeg', 'OpenRouter'],
+      highlights: [
+        'Building an end-to-end pipeline for 60-second vertical videos (Shorts, Reels, TikTok): trend research, script, video and voice generation, FFmpeg assembly with captions, automated QA and a human review gate before publishing.',
+        'Designed a Redis-backed job queue and worker service on FastAPI and PostgreSQL, with a Next.js dashboard, running multi-stage jobs across 3 video models, 3 image models and S3-compatible storage.',
+        'Engineered a multi-provider LLM layer with automatic failover across 3 models and cost-optimised defaults, keeping a finished Short at about $0.50.',
+        'Built an idea-analysis module that scores concepts on projected RPM, competition and ROI, plus a competitor-video teardown tool that extracts a retention blueprint and writes an original script from it, across 4 content niches.'
+      ]
+    },
     {
       role: 'AI Intern',
       company: 'Plattr.io',
-      period: 'May 2025 - July 2025',
+      period: 'May – Jul 2025',
+      location: 'Remote',
+      stack: ['Flask', 'OpenAI API', 'Anthropic API', 'FMP API'],
       highlights: [
-        'Built an end-to-end financial analysis pipeline using SEC-API, processing 10-Q filings and converting raw EDGAR data into structured datasets (18 metadata fields, 14-field exports).',
-        'Engineered a multi-stage pipeline (querying, text extraction, chunking, transformation, LLM analysis) and developed 14 REST API endpoints for filings, insider trades, transcripts, and multi-mode analysis.',
-        'Integrated OpenAI and Anthropic models with chunked processing, extracting structured financial insights including metrics, risks, and key company signals.'
+        'Built an end-to-end pipeline on SEC-API that turns raw EDGAR 10-Q filings into structured datasets (18 metadata fields, 14-field exports).',
+        'Designed the multi-stage flow (query, extraction, chunking, transformation, LLM analysis) and shipped 14 Flask REST endpoints for filings, insider trades, transcripts and analysis.',
+        'Integrated OpenAI and Anthropic models with chunked processing to extract metrics, risks and company signals.'
       ]
     },
     {
       role: 'Machine Learning Engineer',
-      company: 'OutPulse (Open-Source)',
-      period: 'Dec 2024 - Feb 2025',
+      company: 'OutPulse (open source)',
+      period: 'Dec 2024 – Feb 2025',
+      location: 'Mumbai',
+      stack: ['YOLOv11', 'OpenCV', 'ONNX', 'LiDAR'],
       highlights: [
-        'Trained a YOLOv11-based object detection model on 962 images (1,736 annotations) for cone detection, using data augmentation and fine-tuning over 100 epochs (batch size 16, 320×320 resolution).',
-        'Built real-time inference pipelines using OpenCV for webcam and video input, implementing real-time detection workflows from input frames to bounding box outputs.',
-        'Deployed a lightweight model for edge-compatible inference and exported ONNX format for cross-platform deployment, enabling efficient integration into embedded systems.'
+        'Trained a YOLOv11 cone detector on 962 images / 1,736 annotations with augmentation and fine-tuning over 100 epochs.',
+        'Built a real-time OpenCV inference pipeline for webcam and video input, reaching 0.77 mAP50 and 0.89 precision on validation data.',
+        'Exported to ONNX for edge deployment, so inference runs across embedded systems without a cloud dependency.',
+        'College-funded team at the International Space Drone Competition (ISDC), placing 14th of 50.'
       ]
     }
-  ],
+  ] satisfies Role[],
   education: {
-    school: 'Atlas SkillTech University',
-    degree: 'Bachelor of Technology',
-    major: 'Computer Science, Artificial Intelligence & Machine Learning',
-    gpa: 'Graduation: June 2027'
+    school: 'Atlas SkillTech University, Mumbai',
+    degree: 'B.Tech, Computer Science — Artificial Intelligence & Machine Learning',
+    grade: 'CGPA 7.7 / 10',
+    period: '2023 – Jun 2027'
   },
-  certifications: [
-    'Supervised Machine Learning: Regression and Classification - Stanford Online',
-    'Advanced Learning Algorithms - Stanford Online'
-  ],
+  projects: [
+    {
+      title: 'Steam game recommender',
+      date: 'Jul 2026',
+      summary:
+        'A full-stack hybrid recommender for Steam: Bayesian Personalized Ranking blended with 384-dim FAISS embeddings and MMR re-ranking for diversity, trained on 11M+ interactions across 50K+ games.',
+      image: {
+        src: assetPath('project-game-recommendation.png'),
+        alt: 'The recommender’s “For You” page showing ranked game picks with match percentages'
+      },
+      metrics: [
+        { value: '17.8%', label: 'HitRate@20' },
+        { value: '<50 ms', label: 'response time' },
+        { value: '11M+', label: 'interactions' }
+      ],
+      details: [
+        'Steam sign-in and library sync, so recommendations come from what you actually own.',
+        'ANN search plus Redis caching keeps responses under 50 ms.',
+        'Deployed on Render and Vercel with Neon Postgres and Upstash Redis.'
+      ],
+      stack: ['Python', 'FastAPI', 'FAISS', 'React', 'PostgreSQL', 'Redis'],
+      githubUrl: 'https://github.com/Manav-Arora4/game-recommendation-system',
+      demoUrl: 'https://recommendation-btw-sand.vercel.app/'
+    },
+    {
+      title: 'Financial statement analyzer',
+      context: 'Built at Plattr.io',
+      summary:
+        'An LLM pipeline that reads SEC 10-Q filings and produces structured financial datasets and risk signals, exposed through a REST API.',
+      metrics: [
+        { value: '45+', label: '10-Q filings processed' },
+        { value: '14', label: 'REST endpoints' },
+        { value: '18', label: 'metadata fields' }
+      ],
+      details: [
+        'Chunked LLM processing across OpenAI and Anthropic models to stay inside context limits.',
+        'Pulls filings, insider trades and earnings transcripts from SEC-API and FMP.'
+      ],
+      stack: ['Python', 'Flask', 'OpenAI', 'Anthropic', 'SEC-API'],
+      confidential: true
+    },
+    {
+      title: 'Project Airavat — cone detection',
+      context: 'ISDC, with OutPulse — placed 14th of 50',
+      summary:
+        'A YOLOv11 model that detects traffic cones in images, webcam feeds and aerial video so a drone can navigate in real time.',
+      image: {
+        src: assetPath('cone-detection.jpg'),
+        alt: 'Model output on a street scene with seven cones detected at 0.91–0.98 confidence'
+      },
+      metrics: [
+        { value: '0.77', label: 'mAP50 (validation)' },
+        { value: '0.89', label: 'precision' },
+        { value: '14th / 50', label: 'ISDC placing' }
+      ],
+      details: [
+        'Trained on 962 images with 1,736 annotations, using augmentation and fine-tuning over 100 epochs.',
+        'Exported to ONNX so inference runs on-board, with no cloud dependency.'
+      ],
+      stack: ['Python', 'YOLOv11', 'OpenCV', 'ONNX', 'LiDAR'],
+      githubUrl: 'https://github.com/Manav-Arora4/ProjectAiravat'
+    },
+    {
+      title: 'Phishing email detector',
+      date: 'Mar 2026',
+      summary:
+        'An NLP classifier for phishing emails that uses text, URL patterns and HTML structure, served through a FastAPI backend and a browser extension.',
+      metrics: [
+        { value: '96.7%', label: 'accuracy' },
+        { value: '0.953', label: 'F1 score' },
+        { value: '~1.9%', label: 'false-positive rate' }
+      ],
+      details: [
+        'Trained on 164K+ emails with a 20K-token vocabulary.',
+        'Sub-100 ms inference, with a feedback loop for retraining.'
+      ],
+      stack: ['Python', 'scikit-learn', 'FastAPI', 'Naive Bayes'],
+      githubUrl: 'https://github.com/Manav-Arora4/PhishingDetector'
+    },
+    {
+      title: 'FPS prediction',
+      summary:
+        'A regression model that estimates in-game frame rate from hardware configuration, resolution and graphics settings.',
+      metrics: [],
+      details: ['Covers data cleaning, feature encoding, model comparison and error analysis.'],
+      stack: ['Python', 'scikit-learn', 'pandas'],
+      githubUrl: 'https://github.com/Manav-Arora4/fpsPrediction'
+    }
+  ] satisfies Project[],
+  skills: [
+    { category: 'LLMs & RAG', items: ['LangChain', 'FAISS', 'Hugging Face', 'OpenAI API', 'Anthropic API', 'OpenRouter'] },
+    {
+      category: 'ML & AI',
+      items: ['PyTorch', 'TensorFlow', 'scikit-learn', 'NLP', 'Computer vision', 'Recommender systems', 'YOLO', 'OpenCV']
+    },
+    { category: 'Backend', items: ['FastAPI', 'Flask', 'React', 'Next.js', 'FFmpeg'] },
+    { category: 'Languages', items: ['Python', 'SQL', 'C#', 'JavaScript'] },
+    { category: 'Databases', items: ['PostgreSQL', 'Redis', 'MongoDB', 'MySQL'] },
+    { category: 'Cloud & DevOps', items: ['Docker', 'Git', 'ONNX Runtime', 'Vercel', 'Render', 'Neon', 'Upstash'] },
+    { category: 'Data & analytics', items: ['pandas', 'NumPy', 'Matplotlib', 'Power BI', 'Jupyter'] }
+  ] satisfies SkillGroup[],
   certificates: [
     {
       title: 'Advanced Learning Algorithms',
       issuer: 'DeepLearning.AI & Stanford Online',
-      date: 'Nov 16, 2024',
+      date: 'Nov 2024',
       image: assetPath('cert-advanced-learning-algorithms.png'),
       verifyUrl: 'https://coursera.org/verify/O06W4KNY6QWU'
     },
     {
       title: 'Supervised Machine Learning: Regression and Classification',
       issuer: 'DeepLearning.AI & Stanford Online',
-      date: 'Sep 9, 2024',
+      date: 'Sep 2024',
       image: assetPath('cert-supervised-machine-learning.png'),
       verifyUrl: 'https://coursera.org/verify/1ODCA1GHQ5NA'
     }
-  ],
-  contactItems: [
-    { label: 'Email', value: 'manav-manu-arora@outlook.com', href: 'mailto:manav-manu-arora@outlook.com', icon: FaEnvelope },
-    { label: 'Phone', value: '+91 8928986507', href: 'tel:+918928986507', icon: FaPhoneAlt },
-    { label: 'Location', value: 'Navi Mumbai, Maharashtra', href: null, icon: FaMapMarkerAlt },
-    { label: 'LinkedIn', value: 'linkedin.com/in/manav-arora4', href: 'https://www.linkedin.com/in/manav-arora4', icon: FaLinkedin }
-  ],
-  social: [
-    { label: 'GitHub', href: 'https://github.com/Manav-Arora4', icon: FaGithub },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/manav-arora4', icon: FaLinkedin }
-  ]
+  ] satisfies Certificate[]
 };

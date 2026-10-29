@@ -1,162 +1,67 @@
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowDown, FaCheck, FaCopy, FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { ButtonLink } from '../components/ButtonLink';
+import { FiArrowUpRight, FiFileText } from 'react-icons/fi';
 import { portfolio } from '../data/portfolio';
 
-const dynamicSpecialties = [
-  '⚡ Financial NLP & LLM Pipelines',
-  '🎯 Real-Time Edge Vision & YOLOv11',
-  '🔥 High-Throughput Recommendation Engines',
-  '🚀 Production-Grade AI Applications'
-];
-
 export function Hero() {
-  const [specialtyIndex, setSpecialtyIndex] = useState(0);
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSpecialtyIndex((prev) => (prev + 1) % dynamicSpecialties.length);
-    }, 3200);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(portfolio.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  };
+  const [currentRole] = portfolio.experience;
+  const { education } = portfolio;
 
   return (
-    <section id="home" className="hero">
-      {/* Animated Ambient Glow & Particle Orbs */}
-      <div className="hero-glow-1" aria-hidden="true" />
-      <div className="hero-glow-2" aria-hidden="true" />
-      <div className="hero-ambient-particles" aria-hidden="true">
-        <span className="particle p1" />
-        <span className="particle p2" />
-        <span className="particle p3" />
-        <span className="particle p4" />
-      </div>
+    <section id="top" className="hero">
+      <div className="container">
+        <p className="hero-kicker reveal">
+          {portfolio.title} <span aria-hidden="true">·</span> {portfolio.location}
+        </p>
+        <h1 className="hero-title reveal">
+          <span className="visually-hidden">{portfolio.name}. </span>
+          {portfolio.headline}
+        </h1>
 
-      <div className="hero-content">
-        {/* Status Pill & Dynamic Specialty Cycling */}
-        <div className="hero-top-badges">
-          <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="status-badge"
-          >
-            <span className="pulse-dot" />
-            <span>Open to AI/ML Opportunities</span>
-          </motion.div>
+        <div className="hero-grid">
+          <div className="reveal">
+            <p className="hero-intro">{portfolio.intro}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">
+                See selected work
+              </a>
+              <a className="button" href={portfolio.resumeUrl} target="_blank" rel="noreferrer">
+                <FiFileText aria-hidden="true" />
+                Résumé (PDF)
+              </a>
+            </div>
+          </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={specialtyIndex}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className="specialty-rotator-badge"
-            >
-              <span>{dynamicSpecialties[specialtyIndex]}</span>
-            </motion.div>
-          </AnimatePresence>
+          <dl className="hero-facts reveal">
+            <div>
+              <dt>Now</dt>
+              <dd>
+                {currentRole.role}, {currentRole.company}
+                <span>{currentRole.period}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Studying</dt>
+              <dd>
+                Final year, B.Tech CS (AI &amp; ML)
+                <span>
+                  {education.school} · {education.grade}
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>Elsewhere</dt>
+              <dd className="hero-links">
+                <a href={portfolio.links.github} target="_blank" rel="noreferrer">
+                  GitHub <FiArrowUpRight aria-hidden="true" />
+                </a>
+                <a href={portfolio.links.linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn <FiArrowUpRight aria-hidden="true" />
+                </a>
+                <a href={`mailto:${portfolio.email}`}>Email</a>
+              </dd>
+            </div>
+          </dl>
         </div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08 }}
-        >
-          <span className="hero-greeting">Hi, I am </span>
-          <br />
-          <span className="hero-name-bracket">&#123;</span>
-          <span className="hero-name-text">{portfolio.name}</span>
-          <span className="hero-name-bracket">&#125;</span>
-        </motion.h1>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.16 }}
-        >
-          {portfolio.title}
-        </motion.h2>
-
-        <motion.p
-          className="hero-intro"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.24 }}
-        >
-          {portfolio.intro}
-        </motion.p>
-
-        <motion.div
-          className="hero-actions"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.32 }}
-        >
-          <ButtonLink href={portfolio.resumeUrl} variant="primary" icon={FaDownload} download>
-            Download CV
-          </ButtonLink>
-          <ButtonLink href="#projects" variant="ghost" icon={FaArrowDown}>
-            View Projects
-          </ButtonLink>
-          <ButtonLink href={portfolio.links.github} icon={FaGithub} variant="ghost">
-            GitHub
-          </ButtonLink>
-          <ButtonLink href={portfolio.links.linkedin} icon={FaLinkedin} variant="ghost">
-            LinkedIn
-          </ButtonLink>
-          <button
-            type="button"
-            onClick={handleCopyEmail}
-            className="button-link ghost hero-copy-email-btn"
-            title="Copy email to clipboard"
-          >
-            {copied ? <FaCheck className="text-emerald-400" /> : <FaCopy />}
-            <span>{copied ? 'Copied Email!' : 'Copy Email'}</span>
-          </button>
-        </motion.div>
       </div>
-
-      <motion.div
-        className="hero-portrait-wrapper"
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        <div className="hero-portrait-backdrop" aria-hidden="true" />
-        <div className="hero-portrait-card">
-          <div className="hero-avatar-circle">
-            <div className="hero-avatar-placeholder">MA</div>
-          </div>
-          <div className="text-center">
-            <h3 className="text-lg font-bold text-slate-100 m-0">{portfolio.name}</h3>
-            <p className="text-xs text-purple-400 m-0 mt-1 font-mono">B.Tech CS (AI & ML) @ Atlas</p>
-          </div>
-          <div className="hero-stats-list">
-            <div className="hero-stat-item">
-              <span>Focus</span>
-              <strong>Applied AI</strong>
-            </div>
-            <div className="hero-stat-item">
-              <span>Shipped</span>
-              <strong>3 Shipped AI Systems</strong>
-            </div>
-            <div className="hero-stat-item">
-              <span>Status</span>
-              <strong className="text-emerald-400">Available for Roles</strong>
-            </div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }
